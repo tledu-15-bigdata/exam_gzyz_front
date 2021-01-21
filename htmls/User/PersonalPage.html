@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="../../external/assets/css/layui.css">
+    <link rel="stylesheet" href="../../external/assets/css/view.css"/>
+    <link rel="stylesheet" href="../../external/assets/css/admin.css"/>
+    <!--文件上传-->
+    <link rel="stylesheet" type="text/css" href="../../external/webuploader-0.1.5/webuploader.css">
+
+    <!--<script src="../../external/assets/jquery.min.js"></script>-->
+    <script src="../../external/js/jquery-3.5.1.min.js"></script>
+    <script src="../../external/assets/layui.all.js"></script>
+    <!--引入文件上传JS-->
+    <script type="text/javascript" src="../../external/webuploader-0.1.5/webuploader.js"></script>
+</head>
+<body class="layui-view-body">
+<div class="layui-content">
+    <!--面包屑导航-->
+    <div class="mianb">
+        <div class="mblf layui-col-xs6 layui-col-md6">
+            <i class="layui-icon">&#xe656;</i>
+            <p>用户管理 > <span>个人信息查询</span></p>
+        </div>
+    </div>
+
+    <!--面包屑导航-->
+    <div class="layui-row">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录账号</label>
+                <div class="layui-input-block" style="width: 500px">
+                    <input id="myPhone" type="text" name="title" required  lay-verify="required"  autocomplete="off" class="layui-input" readonly>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">我的昵称</label>
+                <div class="layui-input-block" style="width: 500px">
+                    <input id="myName" type="text" name="title" required  lay-verify="required"  autocomplete="off" class="layui-input" readonly>
+                    <button type="button" class="layui-btn layui-btn-normal editBtn">修改</button>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">我的密码</label>
+                <div class="layui-input-block" style="width: 500px">
+                    <input id="myPwd" type="text" name="title" required  lay-verify="required"  autocomplete="off" class="layui-input" readonly>
+                    <button type="button" class="layui-btn layui-btn-normal editBtn">修改</button>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="width: 500px">
+                    <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">我的头像</label>
+
+
+            <div class="layui-input-block">
+                <img id="myImg" alt="您还未上传头像">
+
+                <!--头像上传-->
+                <div id="uploader" class="wu-example">
+                    <!--用来存放文件信息-->
+                    <div id="thelist" class="uploader-list"></div>
+
+                    <div class="btns">
+                        <div id="filePicker">选择文件</div>
+                        <button id="ctlBtn" onclick="upFile()" class="btn btn-default">开始上传</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    $(function (){
+        /*打开页面前去后端查询数据*/
+        alert("我去查询信息了");
+        var user_phone=localStorage.getItem("user_phone");
+        // console.log(user_phone);
+        var phone={"user_phone":user_phone};
+
+        $('#myPhone').val("15511303779");
+        $('#myName').val("yajun");
+        $('#myPwd').val("aaa");
+
+        // $.ajax({
+        //     url:'http://localhost:8080/exam_gzyz/user/queryMyMsg',
+        //     type:'post',
+        //     contentType:'application:json;charset=UTF-8',
+        //     data:JSON.stringify(phone),//json格式字符串
+        //     dataType:'json',
+        //     success:function (res){
+        //         if (res!=null){
+        //             $('#myPhone').val(res.userPhone);
+        //             $('#myName').val(res.userName);
+        //             $('#myPwd').val(res.userPwd);
+        //             $('#myImg').attr('src',res.userImg);
+        //         }
+        //     }
+        // })
+
+        /*修改信息*/
+        $('.editBtn').click(function (){
+            console.log($(this).prev().removeAttr('readonly'));
+        });
+
+        /*确认修改按钮*/
+        $('#commitEdit').click(function (){
+            console.log($('#myPhone').val());
+            console.log($('#myName').val());
+            console.log($('#myPwd').val());
+            var data={"myPhone":$('#myPhone').val(),"myName":$('#myName').val(),"myPwd":$('#myPwd').val()};
+            $.ajax({
+                url:'http://localhost:8080/exam_gzyz/user/editMyMsg',
+                type:'json',
+                contentType:'application:json;charset=UTF-8',
+                data:JSON.stringify(data),//json字符串
+                dataType:'json',
+                success:function (res){
+                    if (res.flag==1){
+                        alert("修改成功");
+                    }else {
+                        alert("修改失败");
+                    }
+                }
+            })
+        });
+
+
+
+        /*头像上传*/
+        //设定上传的路径
+        var BASE_URL="??????";
+        var thumbnailWidth = 1;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档
+        var thumbnailHeight = 1;
+        //直接引用 上传对象   WebUploader
+        var uploader = WebUploader.create({
+            // 选完文件后，是否自动上传。
+            // auto: true,
+            // swf文件路径
+            swf: BASE_URL + '/external/webuploader-0.15/Uploader.swf',
+            // 文件接收服务端。
+            server: 'http://localhost:8080/exam_gzyz/user/ImgUpload',
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePicker',
+            // 只允许选择图片文件。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        })
+        // // 当有文件添加进来的时候  文件队列
+        uploader.on( 'fileQueued', function( file ) {
+            console.log("hahahah")
+            $list=$("#thelist");
+            var $li = $(
+                '<div id="' + file.id + '" class="file-item thumbnail">' +
+                '<img>' +
+                '<div class="info">' + file.name + '</div>' +
+                '</div>'
+                ),
+                $img = $li.find('img');
+            // $list为容器jQuery实例
+            $list.append( $li );
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader.makeThumb( file, function( error, src ) {
+                if ( error ) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+                $img.attr( 'src', src );
+            }, thumbnailWidth, thumbnailHeight );
+        });
+        //File  每一次上环的内容对象
+        //result 后端返回的数据   JSON格式
+        uploader.on( 'uploadSuccess', function( file ,result) {
+            $( '#'+file.id ).addClass('upload-state-done');
+            console.log(result);
+        });
+        function upFile(){
+            uploader.upload();//实现上传
+        }
+    })
+</script>
+</html>
