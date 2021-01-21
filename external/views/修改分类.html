@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" name="courName" id="newCourName1"><br/>
+<button onclick="commitModify()">修改</button>
+
+
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../lay/modules/layer.js"></script>
+<script>
+    function commitModify(){
+        var jsonData={};
+        jsonData.courName=$("#newCourName1").val();
+        jsonData.userId=localStorage.getItem('userId');
+        $.ajax({
+            url:'http:localhost:8080/exam_gzyz_ssm/question/type/editCourseByName',
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success:function (flag){
+                let index=parent.layer.getFrameIndex(window.name)
+                if (flag=="1"){
+                    parent.layer.close(index);
+                    parent.reload();
+                    parent.layer.msg("修改成功")
+                }else {
+                    parent.layer.close(index);
+                    parent.layer.msg("修改失败")
+                }
+            }
+
+        })
+    }
+</script>
+</html>

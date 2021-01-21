@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请输入新添分类：<input type="text" id="newCourName"><br/>
+<button onclick="commitCour()">确定</button>
+
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script src="../lay/modules/layer.js"></script>
+<script>
+    function commitCour(){
+        var jsonData={};
+            jsonData.courName=$("#newCourName").val();
+        jsonData.userId=localStorage.getItem('userId');
+        $.ajax({
+            url:'http:localhost:8080/exam_gzyz_ssm/question/type/addCourse',
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success:function (flag){
+                let index=parent.layer.getFrameIndex(window.name)
+                if (flag=="1"){
+                    parent.layer.close(index);
+                    parent.reload();
+                    parent.layer.msg("添加成功")
+                }else {
+                    parent.layer.close(index);
+                    parent.layer.msg("添加失败")
+                }
+            }
+
+        })
+    }
+</script>
+</html>

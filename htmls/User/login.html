@@ -74,6 +74,7 @@ $(document).ready(function () {
                 dataType:'json',
                 success:function (res){
                     if (res.flag==1){//登录成功
+                        localStorage.setItem("userId",res.userId)
                         localStorage.setItem("userPhone",$('input[name="userPhone"]').val())
                         window.location.href='./CommonPage.html';
                     }else {
