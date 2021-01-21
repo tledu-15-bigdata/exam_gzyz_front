@@ -111,7 +111,8 @@
 
         /*修改信息*/
         $('.editBtn').click(function (){
-            console.log($(this).prev().removeAttr('readonly'));
+            $(this).prev().removeAttr('readonly');
+            $(this).prev().focus();
         });
 
         /*确认修改按钮*/
@@ -139,8 +140,7 @@
 
 
         /*头像上传*/
-        //设定上传的路径
-        var BASE_URL="??????";
+        var BASE_URL="http://localhost:63342/exam_gzyz_front";
         var thumbnailWidth = 1;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档
         var thumbnailHeight = 1;
         //直接引用 上传对象   WebUploader
