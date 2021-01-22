@@ -60,12 +60,21 @@
             margin: auto;
             text-align: center;
         }
+        #box1_get_quesId{
+            display: none;
+        }
+        #box2_get_quesId{
+            display: none;
+        }
     </style>
 </head>
 <body>
+<!--作为接受父页面quesId数据的工具，没有其他页面功能  -->
+<input type="text" id="box1_get_quesId">
+<input type="text" id="box2_get_quesId">
 <div id="quesChoices">
-<input type="radio" name="bedStatus" id="MulitChoiceBtn" checked="checked" value=0>单项选择题
-<input type="radio" name="bedStatus" id="shortAnsBtn" value=1 >简答题<br/>
+    <input type="radio" name="bedStatus" id="MulitChoiceBtn" checked="checked" value=0>单项选择题
+    <input type="radio" name="bedStatus" id="shortAnsBtn" value=1 >简答题<br/>
 </div>
 <div class="test_classify_box">
     <div id="test_classify_box1">
@@ -77,7 +86,7 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea rows="3" cols="20" class="box1_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box1_get box1_get_quesTitle layui-textarea"></textarea></td>
             </tr>
             <tr>
                 <td class="leftPoint"></td>
@@ -85,7 +94,7 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea class="box1_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_a layui-textarea"></textarea></td>
             </tr>
             <tr>
                 <td class="leftPoint"></td>
@@ -93,7 +102,7 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea class="box1_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_b layui-textarea"></textarea></td>
             </tr>
             <tr>
                 <td class="leftPoint"></td>
@@ -101,7 +110,7 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea class="box1_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_c layui-textarea"></textarea></td>
             </tr>
             <tr>
                 <td class="leftPoint"></td>
@@ -109,7 +118,7 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea class="box1_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_d layui-textarea"></textarea></td>
             </tr>
             <tr>
                 <td class="leftPoint">正确答案</td>
@@ -121,15 +130,15 @@
             </tr>
             <tr>
                 <td class="leftPoint">参考分数</td>
-                <td class="rightPoint"><input type="text" value="1.0" class="box1_get layui-input" lay-verify="title" autocomplete="off" placeholder=""></td>
+                <td class="rightPoint"><input type="text"  class="box1_get box1_get_quesScore layui-input" lay-verify="title" autocomplete="off" placeholder=""></td>
             </tr>
             <tr>
                 <td class="leftPoint">试题分类</td>
-                <td class="rightPoint"><select  class="classify_select box1_get"></select></td>
+                <td class="rightPoint"><select  class="classify_select box1_get box1_get_courId"></select></td>
             </tr>
 
         </table>
-        <div><button style="display:block;margin: 0 auto"  onclick="commitQues1()" id="box1_submit">添加</button></div>
+        <div><button style="display:block;margin: 0 auto"  onclick="modifyQues1()" id="box1_submit">修改</button></div>
 
     </div>
     <div id="test_classify_box2">
@@ -141,38 +150,31 @@
             </tr>
             <tr>
                 <td class="leftPoint"></td>
-                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get layui-textarea"></textarea></td>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get box2_get_quesTitle layui-textarea"></textarea></td>
             </tr>
 
             <tr>
                 <td class="leftPoint">正确答案</td>
-                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get layui-textarea"></textarea>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get box2_get_quesAns layui-textarea"></textarea>
                 </td>
             </tr>
             <tr>
                 <td class="leftPoint">参考分数</td>
-                <td class="rightPoint"><input type="text" value="1.0" lay-verify="title" autocomplete="off" placeholder="" class=" box2_get layui-input"></td>
+                <td class="rightPoint"><input type="text"  lay-verify="title" autocomplete="off" placeholder="" class=" box2_get box2_get_quesScore layui-input"></td>
             </tr>
             <tr>
                 <td class="leftPoint">试题分类</td>
-                <td class="rightPoint"><select  class="classify_select box2_get"></select></td>
+                <td class="rightPoint"><select  class="classify_select box2_get box2_get_courId"></select></td>
             </tr>
 
         </table>
-        <div><button style="display:block;margin: 0 auto"  onclick="commitQues2()" id="box2_submit">添加</button></div>
+        <div><button style="display:block;margin: 0 auto"  onclick="modifyQues2()" id="box2_submit">修改</button></div>
     </div>
 </div>
-
-
-
-
-
-<!--<div><button style="display:block;margin: 0 auto"  onclick="commitQues1()" id="box_submit">添加</button></div>-->
 </body>
 <script src="../assets/jquery.min.js"></script>
 <script>
-
-<!--    加载试题分类数据-->
+    <!--    加载试题分类数据-->
     $(document).ready(function(){
         var jsonData = {};
         jsonData.userId = localStorage.getItem("userId");
@@ -201,25 +203,26 @@
         })
     });
 
-    //试题类型切换
+    //试题类型模块切换
     $('input[type=radio][name=bedStatus]').change(function() {
-            if (this.value ==0) {
-                $("#test_classify_box1").css('display','block');
-                $("#test_classify_box2").css('display','none');
+        if (this.value ==0) {
+            $("#test_classify_box1").css('display','block');
+            $("#test_classify_box2").css('display','none');
 
-            }
-            else if (this.value ==1) {
-                // alert("Transfer Thai Gayo");
-                $("#test_classify_box2").css('display','block');
-                $("#test_classify_box1").css('display','none');
-            }
+        }
+        else if (this.value ==1) {
+            // alert("Transfer Thai Gayo");
+            $("#test_classify_box2").css('display','block');
+            $("#test_classify_box1").css('display','none');
+        }
     });
 
-//    添加试题(单项选择题)
 
-    function commitQues1(){
+//    修改为单项选择题
+
+    function modifyQues1(){
         var jsonData={};
-
+        jsonData.quesId=$("#box1_get_quesId").val();
         jsonData.quesType=$('input[name="bedStatus"]:checked').val();
         jsonData.courId=$(".box1_get").eq(6).val();
         jsonData.quesTitle=$(".box1_get").eq(0).val();
@@ -230,10 +233,9 @@
         jsonData.quesAns=$('input[name="rightAnswer"]:checked').val();
         jsonData.quesScore=$(".box1_get").eq(5).val();
         jsonData.quesImg="";
-        jsonData.userId=localStorage.getItem("userId");
 
         $.ajax({
-            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/addQuestion",
+            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/editQuestion",
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
@@ -243,50 +245,51 @@
                 if (flag&&flag=="1"){
                     parent.layer.close(index);
                     parent.reload();
-                    parent.layer.msg("添加成功")
+                    parent.layer.msg("修改成功")
                 }else {
                     parent.layer.close(index);
-                    parent.layer.msg("添加失败")
+                    parent.layer.msg("修改失败")
+                }
+            }
+        })
+
+    }
+
+//    修改为简答题
+    function modifyQues2(){
+        var jsonData={};
+        jsonData.quesId=$("#box2_get_quesId").val();
+        jsonData.quesType=$('input[name="bedStatus"]:checked').val();
+        jsonData.courId=$('.box2_get').eq(3).val();
+        jsonData.quesTitle=$('.box2_get').eq(0).val();
+        jsonData.quesSelA="";
+        jsonData.quesSelB="";
+        jsonData.quesSelC="";
+        jsonData.quesSelD="";
+        jsonData.quesAns=$(".box2_get").eq(1).val();
+        jsonData.quesScore=$(".box2_get").eq(5).val();
+        jsonData.quesImg="";
+
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/addQuestion",
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(result) {
+                let index=parent.layer.getFrameIndex(window.name)
+                if (flag&&flag=="1"){
+                    parent.layer.close(index);
+                    parent.reload();
+                    parent.layer.msg("修改成功")
+                }else {
+                    parent.layer.close(index);
+                    parent.layer.msg("修改失败")
                 }
             }
         })
     }
 
-//    添加试题（简答题）
-function commitQues2(){
-    var jsonData={};
-
-    jsonData.quesType=$('input[name="bedStatus"]:checked').val();
-    jsonData.courId=$('.box2_get').eq(3).val();
-    jsonData.quesTitle=$('.box2_get').eq(0).val();
-    jsonData.quesSelA="";
-    jsonData.quesSelB="";
-    jsonData.quesSelC="";
-    jsonData.quesSelD="";
-    jsonData.quesAns=$(".box2_get").eq(1).val();
-    jsonData.quesScore=$(".box2_get").eq(5).val();
-    jsonData.quesImg="";
-    jsonData.userId=localStorage.getItem("userId");
-
-    $.ajax({
-        url: "http://localhost:8080/exam_gzyz_ssm/question/ques/addQuestion",
-        data: JSON.stringify(jsonData),
-        type: "post",
-        contentType: "application/json",
-        dataType: "JSON",
-        success: function(result) {
-            let index=parent.layer.getFrameIndex(window.name)
-            if (flag&&flag=="1"){
-                parent.layer.close(index);
-                parent.reload();
-                parent.layer.msg("添加成功")
-            }else {
-                parent.layer.close(index);
-                parent.layer.msg("添加失败")
-            }
-        }
-    })
-}
 
 </script>
 </html>

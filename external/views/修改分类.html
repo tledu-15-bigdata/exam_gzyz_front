@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #courId1{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<input type="text" name="courName" id="newCourName1"><br/>
-<button onclick="commitModify()">修改</button>
+<input type="text" name="courName" id="courName1">
+<input type="text" name="courId" id="courId1"><br/>
+<button onclick="commitModifyCour()">修改</button>
 
 
 </body>
 <script src="../assets/jquery.min.js"></script>
 <script src="../lay/modules/layer.js"></script>
 <script>
-    function commitModify(){
+    function commitModifyCour(){
         var jsonData={};
-        jsonData.courName=$("#newCourName1").val();
-        jsonData.userId=localStorage.getItem('userId');
+        jsonData.courName=$("#courName1").val();
+        jsonData.courId=$("#courId1").val();
         $.ajax({
             url:'http:localhost:8080/exam_gzyz_ssm/question/type/editCourseByName',
             data: JSON.stringify(jsonData),

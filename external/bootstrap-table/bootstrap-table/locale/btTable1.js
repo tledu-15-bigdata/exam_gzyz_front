@@ -39,7 +39,7 @@ function load() {
                     var courId=row.courId;
                     let url= 'http://localhost:8080/exam_gzyz_ssm/question/type/delCourseByName/'+courId;
                     let operations='<a href="javascript:removeCour(\''+url+'\')">删除</a>';
-                    operations+='<a href="javascript:void(0)" onclick="modifyCour(\''+row.courName+'\')">修改</a>';
+                    operations+='<a href="javascript:void(0)" onclick="modifyCour(\''+row.courId+'\',\''+row.courName+'\')">修改</a>';
                     return operations;
 
                 }
@@ -64,7 +64,7 @@ function removeCour(url){
     })
 }
 
-function modifyCour(courName){
+function modifyCour(courId,courName){
     layer.open({
         type:2,
         title:'修改分类',
@@ -75,6 +75,7 @@ function modifyCour(courName){
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             $(childBody).find('input[name=courName]').val(courName);
+            $(childBody).find('input[name=courId]').val(courId);
         }
     })
 }
