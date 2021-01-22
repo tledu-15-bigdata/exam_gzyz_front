@@ -85,29 +85,26 @@
     $(function (){
         /*打开页面前去后端查询数据*/
         alert("我去查询信息了");
-        var user_phone=localStorage.getItem("user_phone");
-        // console.log(user_phone);
-        var phone={"user_phone":user_phone};
+        var myPhone=localStorage.getItem("userPhone");
+        console.log(myPhone);
+        var phone={"userPhone":myPhone};
 
-        $('#myPhone').val("15511303779");
-        $('#myName').val("yajun");
-        $('#myPwd').val("aaa");
-
-        // $.ajax({
-        //     url:'http://localhost:8080/exam_gzyz/user/queryMyMsg',
-        //     type:'post',
-        //     contentType:'application:json;charset=UTF-8',
-        //     data:JSON.stringify(phone),//json格式字符串
-        //     dataType:'json',
-        //     success:function (res){
-        //         if (res!=null){
-        //             $('#myPhone').val(res.userPhone);
-        //             $('#myName').val(res.userName);
-        //             $('#myPwd').val(res.userPwd);
-        //             $('#myImg').attr('src',res.userImg);
-        //         }
-        //     }
-        // })
+        $.ajax({
+            url:'http://localhost:8080/exam_gzyz_ssm/user/queryMyMsg',
+            type:'post',
+            contentType:'application:json;charset=UTF-8',
+            data:JSON.stringify(phone),//json格式字符串
+            dataType:'json',
+            success:function (res){
+                console.log(res);
+                if (res!=null){
+                    $('#myPhone').val(res.userPhone);
+                    $('#myName').val(res.userName);
+                    $('#myPwd').val(res.userPwd);
+                    $('#myImg').attr('src',res.userImg);
+                }
+            }
+        })
 
         /*修改信息*/
         $('.editBtn').click(function (){
