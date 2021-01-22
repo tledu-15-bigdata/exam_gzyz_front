@@ -6,7 +6,7 @@ function reload(){
 }
 
 function load() {
-    let url="http://localhost:8080/exam_gzyz/question/type/queryCourse"
+    let url="http://localhost:8080/exam_gzyz_ssm/question/type/queryCourse"
     $("#myCourceTable").bootstrapTable({
         url:url,
         method:"POST",
@@ -21,7 +21,7 @@ function load() {
         //查询时携带的参数  data:JSON.stringify()
         queryParams:function(params){   //上传服务器的参数
             var temp={
-                offset:params.offset, //SQL语句起始索引
+                offSet:params.offset, //SQL语句起始索引
                 pageNumber: params.limit, //每页显示数量
                 userId:localStorage.getItem("userId")
             };

@@ -6,7 +6,7 @@ function reload(){
 }
 
 function load() {
-    let url="http://localhost:8080/exam_gzyz//quesion/ques/queryQuestions"
+    let url="http://localhost:8080/exam_gzyz_ssm/question/ques/queryQuestions";
     $("#myTable").bootstrapTable({
         url:url,
         method:"POST",

@@ -82,7 +82,7 @@
                 data: $('#commitBtn').serialize(),
                 dataType: 'json',
                 success: function (res) {
-                    if (res.flag == '1') {
+                    if (res == '1') {
                         window.location.href = 'zhuceSucc.html';
                     } else {
                         alert("注册失败");
