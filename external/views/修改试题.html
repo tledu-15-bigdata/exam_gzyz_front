@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assets/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/view.css"/>
+    <link rel="stylesheet" href="../assets/css/style.css"/>
+    <style>
+        .test_classify_box{
+            width: 100%;
+            height: 95%;
+        }
+
+        .test_classify_box>div{
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #test_classify_box1{
+            display: block;
+        }
+        #change_test{
+            display: none;
+        }
+        .leftPoint{
+            text-align: right;
+        }
+        .rightPoint{
+            text-indent: 1em;
+            text-align: left;
+        }
+        tr {
+            /*width: 100%;*/
+            /*height: 100px;*/
+            text-align: center;
+            height: 20px;
+            /*border-bottom: 1px solid black;*/
+        }
+
+        td {
+            /*width: 33%;*/
+            height: 70px;
+            border: none;
+        }
+
+        table {
+            width: 100%;
+            margin: auto;
+        }
+        .test_table{
+            width: 50%;
+        }
+        .test_table td{
+            height: 40px;
+        }
+        #quesChoices{
+            width: 100%;
+            height: 10%;
+            margin: auto;
+            text-align: center;
+        }
+        #box1_get_quesId{
+            display: none;
+        }
+        #box2_get_quesId{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--作为接受父页面quesId数据的工具，没有其他页面功能  -->
+<input type="text" id="box1_get_quesId">
+<input type="text" id="box2_get_quesId">
+<div id="quesChoices">
+    <input type="radio" name="bedStatus" id="MulitChoiceBtn" checked="checked" value=0>单项选择题
+    <input type="radio" name="bedStatus" id="shortAnsBtn" value=1 >简答题<br/>
+</div>
+<div class="test_classify_box">
+    <div id="test_classify_box1">
+        <table cellspacing="0" cellpadding="1" class="test_table">
+
+            <tr>
+                <td class="leftPoint">试题内容</td>
+                <td class="rightPoint"></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box1_get box1_get_quesTitle layui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint">A</td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_a layui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint">B</td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_b layui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint">C</td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_c layui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint">D</td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea class="box1_get box1_get_d layui-textarea"></textarea></td>
+            </tr>
+            <tr>
+                <td class="leftPoint">正确答案</td>
+                <td class="rightPoint"><input type="radio" name="rightAnswer" value="A">A
+                    <input type="radio" name="rightAnswer" value="B">B
+                    <input type="radio" name="rightAnswer" value="C">C
+                    <input type="radio" name="rightAnswer" value="D">D
+                </td>
+            </tr>
+            <tr>
+                <td class="leftPoint">参考分数</td>
+                <td class="rightPoint"><input type="text"  class="box1_get box1_get_quesScore layui-input" lay-verify="title" autocomplete="off" placeholder=""></td>
+            </tr>
+            <tr>
+                <td class="leftPoint">试题分类</td>
+                <td class="rightPoint"><select  class="classify_select box1_get box1_get_courId"></select></td>
+            </tr>
+
+        </table>
+        <div><button style="display:block;margin: 0 auto"  onclick="modifyQues1()" id="box1_submit">修改</button></div>
+
+    </div>
+    <div id="test_classify_box2">
+        <table cellspacing="0" cellpadding="1" class="test_table">
+
+            <tr>
+                <td class="leftPoint">试题内容</td>
+                <td class="rightPoint"></td>
+            </tr>
+            <tr>
+                <td class="leftPoint"></td>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get box2_get_quesTitle layui-textarea"></textarea></td>
+            </tr>
+
+            <tr>
+                <td class="leftPoint">正确答案</td>
+                <td class="rightPoint"><textarea rows="3" cols="20" class="box2_get box2_get_quesAns layui-textarea"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftPoint">参考分数</td>
+                <td class="rightPoint"><input type="text"  lay-verify="title" autocomplete="off" placeholder="" class=" box2_get box2_get_quesScore layui-input"></td>
+            </tr>
+            <tr>
+                <td class="leftPoint">试题分类</td>
+                <td class="rightPoint"><select  class="classify_select box2_get box2_get_courId"></select></td>
+            </tr>
+
+        </table>
+        <div><button style="display:block;margin: 0 auto"  onclick="modifyQues2()" id="box2_submit">修改</button></div>
+    </div>
+</div>
+</body>
+<script src="../assets/jquery.min.js"></script>
+<script>
+    <!--    加载试题分类数据-->
+    $(document).ready(function(){
+        var jsonData = {};
+        jsonData.userId = localStorage.getItem("userId");
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/question/type/queryOnlyCourse",
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(result) {
+                // console.log("哈哈哈哈哈哈哈哈哈哈")
+                $(".classify_select").html("");
+                var array = result;
+                // console.log(array)
+                var k = result.length;
+                for (var i = 0; i < k; i++) {
+
+                    var opt=$("<option>");
+                    opt.val(array[i].courId);
+                    opt.text(array[i].courName);
+                    $(".classify_select").append(opt);
+
+                }
+
+            }
+        })
+    });
+
+    //试题类型模块切换
+    $('input[type=radio][name=bedStatus]').change(function() {
+        if (this.value ==0) {
+            $("#test_classify_box1").css('display','block');
+            $("#test_classify_box2").css('display','none');
+
+        }
+        else if (this.value ==1) {
+            // alert("Transfer Thai Gayo");
+            $("#test_classify_box2").css('display','block');
+            $("#test_classify_box1").css('display','none');
+        }
+    });
+
+
+//    修改为单项选择题
+
+    function modifyQues1(){
+        var jsonData={};
+        jsonData.quesId=$("#box1_get_quesId").val();
+        jsonData.quesType=$('input[name="bedStatus"]:checked').val();
+        jsonData.courId=$(".box1_get").eq(6).val();
+        jsonData.quesTitle=$(".box1_get").eq(0).val();
+        jsonData.quesSelA=$(".box1_get").eq(1).val();
+        jsonData.quesSelB=$(".box1_get").eq(2).val();
+        jsonData.quesSelC=$(".box1_get").eq(3).val();
+        jsonData.quesSelD=$(".box1_get").eq(4).val();
+        jsonData.quesAns=$('input[name="rightAnswer"]:checked').val();
+        jsonData.quesScore=$(".box1_get").eq(5).val();
+        jsonData.quesImg="";
+
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/editQuestion",
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(flag) {
+                let index=parent.layer.getFrameIndex(window.name)
+                if (flag&&flag=="1"){
+                    parent.layer.close(index);
+                    parent.reload();
+                    parent.layer.msg("修改成功")
+                }else {
+                    parent.layer.close(index);
+                    parent.layer.msg("修改失败")
+                }
+            }
+        })
+
+    }
+
+//    修改为简答题
+    function modifyQues2(){
+        var jsonData={};
+        jsonData.quesId=$("#box2_get_quesId").val();
+        jsonData.quesType=$('input[name="bedStatus"]:checked').val();
+        jsonData.courId=$('.box2_get').eq(3).val();
+        jsonData.quesTitle=$('.box2_get').eq(0).val();
+        jsonData.quesSelA="";
+        jsonData.quesSelB="";
+        jsonData.quesSelC="";
+        jsonData.quesSelD="";
+        jsonData.quesAns=$(".box2_get").eq(1).val();
+        jsonData.quesScore=$(".box2_get").eq(5).val();
+        jsonData.quesImg="";
+
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/addQuestion",
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(result) {
+                let index=parent.layer.getFrameIndex(window.name)
+                if (flag&&flag=="1"){
+                    parent.layer.close(index);
+                    parent.reload();
+                    parent.layer.msg("修改成功")
+                }else {
+                    parent.layer.close(index);
+                    parent.layer.msg("修改失败")
+                }
+            }
+        })
+    }
+
+
+</script>
+</html>
