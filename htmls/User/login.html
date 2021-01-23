@@ -73,12 +73,6 @@ $(document).ready(function () {
                 data:$('#loginForm').serialize(),//formdata数据
                 dataType:'json',
                 success:function (res){
-                    /*if (res.flag==1){//登录成功
-                        localStorage.setItem("userPhone",$('input[name="userPhone"]').val())
-                        window.location.href='./CommonPage.html';
-                    }else {
-                        alert("登录失败");
-                    }*/
                     if (res=="1"){//登录成功
                         localStorage.setItem("userPhone",$('input[name="user_phone"]').val())
                         window.location.href='../CommonPage.html';
