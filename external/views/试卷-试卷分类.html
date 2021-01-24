@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>试卷分类</title>
+    <link rel="stylesheet" href="../assets/css/layui.css">    
+    <link rel="stylesheet" href="../assets/css/view.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css"/>
+	<!--bootatrap-table-->
+	<link rel="stylesheet" href="../bootstrap-table/bootstrap-table/css/bootstrap-table.min.css">
+	<link rel="stylesheet" href="../bootstrap-table/bootstrap-table/css/bootstrap.min.css">
+
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<script src="../bootstrap-table/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="../bootstrap-table/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+	<script src="../assets/layui.all.js"></script>
+
+
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+    	<!--面包屑导航-->
+    	<div class="mianb">
+    		<div class="mblf layui-col-xs6 layui-col-md6">
+    			 <i class="layui-icon">&#xe656;</i>
+    			 <p>首页管理 > <span>试卷分类管理</span></p>
+    		</div>
+    		<div class="mbrt layui-col-xs6 layui-col-md6">
+    			<a href="javascript:;" class="layui-btn layui-btn-normal" id="fabu">添加分类</a>
+    		</div>
+    	</div>
+    	<!--面包屑导航-->
+        <div class="layui-row">
+            <div class="layui-card">
+            	<div class="table-responsive">
+			 		  <table id="Mytable2" class="layui-table" lay-skin="line" lay-size="lg" >
+						  <!--<thead>
+						    <tr>
+						      <th>行号</th>
+						      <th>试卷分类名</th>
+						      <th>创建时间</th>
+						      <th>操作</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>每日登录</td>
+						      <td>每天登录可得1积分</td>
+						      <td>2019-11-29</td>
+						      <td>
+						      	  <div class="layui-table-cell laytable-cell-1-0-10">
+									 <a class="delMsg delete" href="javaScript:void(0);">删除</a>
+									 <a class="editMsg" href="javaScript:void(0);">修改</a>
+						      	  </div>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td>连续登录5天</td>
+						      <td>连续登录5天，中间间隔重新开始</td>
+						      <td>2019-11-29</td>
+						      <td>
+						      	  <div class="layui-table-cell laytable-cell-1-0-10">
+									  <a class="delMsg delete" href="javaScript:void(0);">删除</a>
+									  <a class="editMsg" href="javaScript:void(0);">修改</a>
+						      	  </div>
+						      </td>
+						    </tr>
+						  </tbody>-->
+					</table>
+			 	</div>
+                   
+           		<!--分页-->
+           		<div id="page"></div>
+           		<!--分页-->
+            </div>           
+        </div>
+    </div>
+
+	<script src="../js/Paper-Classify.js"></script>
+
+
+	
+</body>
+</html>
