@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="stylesheet" href="../assets/css/layui.css">
+	    <link rel="stylesheet" href="../assets/css/view.css"/>
+	    <link rel="stylesheet" href="../assets/css/style.css"/>
+	</head>
+	<body class="layui-tank">
+		 <div class="layui-card">
+		 	   <form id="addPaperForm" class="layui-form" action="">
+				   <input id="myUserId" name="userId" type="text" style="display: none">
+				   <div class="layui-form-item layui-form-text">
+					   <label class="layui-form-label">试卷标题</label>
+					   <div class="layui-input-block">
+						   <input type="text" name="pcTitle" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+					   </div>
+				   </div>
+				   <div class="layui-form-item">
+					   <label class="layui-form-label">请选择分类名称</label>
+					   <div class="layui-input-block">
+						   <select name="pcId">
+							   <option value="null">---------</option>
+						   </select>
+					   </div>
+				   </div>
+					<div class="layui-form-item layui-form-text">
+					    <label class="layui-form-label">开始时间</label>
+					    <div class="layui-input-block">
+					         <input type="datetime-local" name="pStartTime" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+					    </div>
+					</div>
+				   <div class="layui-form-item layui-form-text">
+					   <label class="layui-form-label">结束时间</label>
+					   <div class="layui-input-block">
+						   <input type="datetime-local" name=pEndTime" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+					   </div>
+				   </div>
+				   <div class="layui-form-item layui-form-text">
+					   <label class="layui-form-label">是否随意时间</label>
+					   <div class="layui-input-block">
+						   <input type="radio" name="pFree" value="1" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">是
+						   <br>
+						   <input type="radio" name="pFree" value="0" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">否
+					   </div>
+				   </div>
+			   </form>
+		 </div>
+		 <div class=" tkbtnfxd">
+	    	<button id="Ok" type="button" class="layui-btn  layui-btn-normal float-right">确定</button>
+	        <button type="button" class="layui-btn layui-btn-primary float-right">取消</button>
+	    </div>
+	    
+	<script src="../assets/layui.all.js"></script>
+	<script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+	<script>
+		$(function (){
+			let baseUrl='http://localhost:8080/exam_gzyz_ssm';
+			let userId=localStorage.getItem("userId");
+			/**
+			 * 打开页面前加载试卷分类
+			 */
+			$.ajax({
+				url:baseUrl+'/paper/queryAllClassify/'+userId,
+				type:'post',
+				dataType:'json',
+				success:function (res){
+					for(var i=0;i<res.length;i++){
+						var option=$('<option value ="'+res[0].pcId+'">'+res[0].pcName+'</option>');
+						$('select[name="pcId"]').append(option);
+					}
+				}
+			});
+			/**
+			 * 点击确定按钮，添加试卷
+			 */
+			$('#Ok').click(function (){
+				$('#myUserId').val(userId);
+				$.ajax({
+					url:baseUrl+'/paper/addPaper',
+					type:'post',
+					data:$('#addPaperForm').serialize(),
+					dataType:'json',
+					success:function (res){
+						if (res=="1"){
+							alert("添加成功");
+							window.close();
+						}else {
+							alert("添加失败");
+						}
+					}
+				})
+			});
+		})
+	</script>
+	</body>
+</html>
