@@ -75,6 +75,7 @@ $(document).ready(function () {
                 success:function (res){
                     if (res=="1"){//登录成功
                         localStorage.setItem("userPhone",$('input[name="user_phone"]').val())
+
                         window.location.href='../CommonPage.html';
                     }else {
                         alert("登录失败");

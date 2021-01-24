@@ -1,4 +1,6 @@
 $(function () {
+    console.log("hahahahahahah")
+    console.log(localStorage.getItem("userId"))
     load();
 })
 function reload(){
