@@ -30,11 +30,11 @@ $(document).ready(function () {
          <form action="#" id="loginForm">
              <div class="txt">
                  <span style="letter-spacing:8px;">登录账号:</span>
-                 <input name="user_phone" type="text" class="txtphone" placeholder="请输入注册手机号"/>
+                 <input name="userPhone" type="text" class="txtphone" placeholder="请输入注册手机号"/>
              </div>
              <div class="txt">
                  <span style="letter-spacing:4px;">登录密码:</span>
-                 <input name="user_pwd" type="password" class="txtphone" placeholder="请输入登录密码"/>
+                 <input name="userPwd" type="password" class="txtphone" placeholder="请输入登录密码"/>
              </div>
 <!--             <div class="txt">-->
 <!--                 <span style=" float:left;letter-spacing:8px;">验证码:</span>-->
@@ -66,15 +66,18 @@ $(document).ready(function () {
          */
         $('#loginBtn').click(function (){
             console.log($('#loginForm').serialize());
-            console.log($('input[name="user_phone"]').val());
             $.ajax({
                 url:'http://localhost:8080/exam_gzyz_ssm/user/login',
                 type:'post',
                 data:$('#loginForm').serialize(),//formdata数据
                 dataType:'json',
                 success:function (res){
-                    if (res=="1"){//登录成功
-                        localStorage.setItem("userPhone",$('input[name="user_phone"]').val())
+                    console.log(res);
+                    if (res.flag=="1"){//登录成功
+                        localStorage.setItem("userPhone",$('input[name="userPhone"]').val());
+                        localStorage.setItem("userId",res.userId);
+                        console.log(res.userId);
+                        console.log(localStorage.getItem("userId"));
                         window.location.href='../CommonPage.html';
                     }else {
                         alert("登录失败");

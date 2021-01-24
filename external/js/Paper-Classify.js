@@ -32,7 +32,6 @@ function load() {
                 }
 
             },
-
             {
                 title:'试卷分类类名',
                 field:'pcName'
@@ -50,11 +49,8 @@ function load() {
                     return del+" "+edit;
                 }
             }
-
         ]
     });
-
-
 }
 
 /**

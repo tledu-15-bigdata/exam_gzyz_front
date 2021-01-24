@@ -45,13 +45,13 @@
 		 */
 		$('#Ok').click(function (){
 			console.log($('input[name="pcName"]').val());
-			let pcName={"pcName":$('input[name="pcName"]').val()};
-			console.log(JSON.stringify(pcName));
+			let data={"pcName":$('input[name="pcName"]').val(),"userId":localStorage.getItem("userId")};
+			console.log(JSON.stringify(data));
 			$.ajax({
 				url:baseUrl+'/paper/addClassify',
 				contentType:'application/json;charset=UTF-8',
 				type:'post',
-				data:JSON.stringify(pcName),
+				data:JSON.stringify(data),
 				dataType:'json',
 				success:function (res){
 					if (res=="1"){
