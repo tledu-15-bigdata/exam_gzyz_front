@@ -85,29 +85,26 @@
     $(function (){
         /*打开页面前去后端查询数据*/
         alert("我去查询信息了");
-        var user_phone=localStorage.getItem("user_phone");
-        // console.log(user_phone);
-        var phone={"user_phone":user_phone};
+        var myPhone=localStorage.getItem("userPhone");
+        console.log(myPhone);
+        var phone={"userPhone":myPhone};
 
-        $('#myPhone').val("15511303779");
-        $('#myName').val("yajun");
-        $('#myPwd').val("aaa");
-
-        // $.ajax({
-        //     url:'http://localhost:8080/exam_gzyz/user/queryMyMsg',
-        //     type:'post',
-        //     contentType:'application:json;charset=UTF-8',
-        //     data:JSON.stringify(phone),//json格式字符串
-        //     dataType:'json',
-        //     success:function (res){
-        //         if (res!=null){
-        //             $('#myPhone').val(res.userPhone);
-        //             $('#myName').val(res.userName);
-        //             $('#myPwd').val(res.userPwd);
-        //             $('#myImg').attr('src',res.userImg);
-        //         }
-        //     }
-        // })
+        $.ajax({
+            url:'http://localhost:8080/exam_gzyz_ssm/user/queryMyMsg',
+            type:'post',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(phone),//json格式字符串
+            dataType:'json',
+            success:function (res){
+                console.log(res);
+                if (res!=null){
+                    $('#myPhone').val(res.userPhone);
+                    $('#myName').val(res.userName);
+                    $('#myPwd').val(res.userPwd);
+                    $('#myImg').attr('src',res.userImg);
+                }
+            }
+        })
 
         /*修改信息*/
         $('.editBtn').click(function (){
@@ -120,15 +117,15 @@
             console.log($('#myPhone').val());
             console.log($('#myName').val());
             console.log($('#myPwd').val());
-            var data={"myPhone":$('#myPhone').val(),"myName":$('#myName').val(),"myPwd":$('#myPwd').val()};
+            var data={"userPhone":$('#myPhone').val(),"userName":$('#myName').val(),"userPwd":$('#myPwd').val()};
             $.ajax({
-                url:'http://localhost:8080/exam_gzyz/user/editMyMsg',
-                type:'json',
-                contentType:'application:json;charset=UTF-8',
+                url:'http://localhost:8080/exam_gzyz_ssm/user/editMyMsg',
+                type:'post',
+                contentType:'application/json;charset=UTF-8',
                 data:JSON.stringify(data),//json字符串
                 dataType:'json',
                 success:function (res){
-                    if (res.flag==1){
+                    if (res=="1"){
                         alert("修改成功");
                     }else {
                         alert("修改失败");
@@ -150,7 +147,7 @@
             // swf文件路径
             swf: BASE_URL + '/external/webuploader-0.15/Uploader.swf',
             // 文件接收服务端。
-            server: 'http://localhost:8080/exam_gzyz/user/ImgUpload',
+            server: 'http://localhost:8080/exam_gzyz_ssm/user/ImgUpload',
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: '#filePicker',
