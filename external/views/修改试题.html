@@ -271,12 +271,12 @@
         jsonData.quesImg="";
 
         $.ajax({
-            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/addQuestion",
+            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/editQuestion",
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
             dataType: "JSON",
-            success: function(result) {
+            success: function(flag) {
                 let index=parent.layer.getFrameIndex(window.name)
                 if (flag&&flag=="1"){
                     parent.layer.close(index);

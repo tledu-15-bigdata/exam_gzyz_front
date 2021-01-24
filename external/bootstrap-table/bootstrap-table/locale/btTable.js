@@ -68,16 +68,18 @@ function load() {
                     jsonData.courId=value;
                     var courId;
                     $.ajax({
-                        url:'http://localhost:8080/exam_gzyz_ssm/',
-                        data: JSON.stringify(jsonData),
+                        url:'http://localhost:8080/exam_gzyz_ssm/question/type/queryCourseById',
+                        async:false,
+                        data: jsonData,
                         type: "post",
-                        contentType: "application/json",
-                        dataType: "JSON",
                         success:function (courName){
                             courId=courName;
                         }
 
                     })
+
+
+
                     return courId;
                 }
 
@@ -94,7 +96,7 @@ function load() {
                 title:'管理',
                 formatter:function(value,row,index){
                     var quesId=row.quesId;
-                    let url= 'http://localhost:8080/exam_/removeData/'+quesId;
+                    let url= 'http://localhost:8080/exam_gzyz_ssm/question/ques/delOneQuestion/'+quesId;
                     let operations='<a href="javascript:removeQues(\''+url+'\')">删除</a>';
                         operations+='<a href="javascript:void(0)" onclick="modifyQues(\''+row.quesId+'\',\''+row.quesType+'\',\''+row.courId+'\',\''+row.quesTitle+'\',\''+row.quesSelA+'\',\''+row.quesSelB+'\',\''+row.quesSelC+'\',\''+row.quesSelD+'\',\''+row.quesAns+'\',\''+row.quesScore+'\',\''+row.quesImg+'\',\''+row.createTime+'\',)">修改</a>'
                     return operations;
@@ -107,7 +109,8 @@ function load() {
 
 }
 
-function remove(url){
+
+function removeQues(url){
     $.ajax({
         url:url,
         type:"get",
@@ -174,7 +177,7 @@ function deleteQues(quesIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:'http:localhost:8080/exam_gzyz_ssm/quesion/ques/delManyQuestion',
+            url:'http://localhost:8080/exam_gzyz_ssm/quesion/ques/delManyQuestion',
             type:'post',
             data: {
                 quesIds:quesIds

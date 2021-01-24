@@ -17,6 +17,7 @@
 
 
 </body>
+<script src="../assets/layui.all.js"></script>
 <script src="../assets/jquery.min.js"></script>
 <script src="../lay/modules/layer.js"></script>
 <script>
@@ -25,7 +26,7 @@
         jsonData.courName=$("#courName1").val();
         jsonData.courId=$("#courId1").val();
         $.ajax({
-            url:'http:localhost:8080/exam_gzyz_ssm/question/type/editCourseByName',
+            url:'http://localhost:8080/exam_gzyz_ssm/question/type/editCourseByName',
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
