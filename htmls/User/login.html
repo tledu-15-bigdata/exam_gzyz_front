@@ -68,13 +68,13 @@ $(document).ready(function () {
             console.log($('#loginForm').serialize());
             console.log($('input[name="user_phone"]').val());
             $.ajax({
-                url:'http://localhost:8080/exam_gzyz/user/login',
+                url:'http://localhost:8080/exam_gzyz_ssm/user/login',
                 type:'post',
                 data:$('#loginForm').serialize(),//formdata数据
                 dataType:'json',
-                success:function (res){
-                    if (res.flag==1){//登录成功
-                        localStorage.setItem("userId",res.userId)
+                success:function (flag){
+                    if (flag == '1'){//登录成功
+                        localStorage.setItem("userId",flag.userId)
                         localStorage.setItem("userPhone",$('input[name="userPhone"]').val())
                         window.location.href='./CommonPage.html';
                     }else {
