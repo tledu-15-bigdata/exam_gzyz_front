@@ -26,7 +26,7 @@ function load() {
         striped:true,  //是否显示行间隔色
         pageNumber:1,   //初始化加载第一页
         pagination:true,  //是否分页
-        pageSize:5,   //单页记录数
+        pageSize:10,   //单页记录数
 
         //查询时携带的参数  data:JSON.stringify()
         queryParams:function(params){   //上传服务器的参数
@@ -61,17 +61,18 @@ function load() {
                 formatter(value,row,index){
                     jsonData={};
                     jsonData.pcId=value;
-                    var pcName;
+                    var pcName='';
                     $.ajax({
-                        url:url+'/paper/queryOneClassify',
+                        url:baseurl+'/paper/queryOneClassify',
                         type: "post",
                         contentType: "application/json",
                         data: JSON.stringify(jsonData),
                         dataType: "JSON",
                         success:function (res){
                             pcName=res.pcName;
+                            console.log(res.pcName);
                         }
-                    })
+                    });
                     return pcName;
                 }
             },
@@ -108,10 +109,10 @@ function load() {
                 field: 'pId',
                 formatter:function(value,row,index){
                     var quesId=row.quesId;
-                    let del='<a onclick="delMsg('+value+')" href="javascript:void(0);">删除</a>';
-                    let addQuestion='<a onclick="questionManager('+value+')" href="javaScript:void(0);">试题设置</a>';
+                    let del='<a onclick="delMsg(\''+value+'\')" href="javascript:void(0);">删除</a>';
+                    let addQuestion='<a onclick="questionManager(\''+value+'\')" href="javaScript:void(0);">试题设置</a>';
                     let  edit='<a onclick="onclick=onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')"></a>'
-                    return operations;
+                    return del+addQuestion+edit;
                 }
             }
 
@@ -185,11 +186,9 @@ function deleteQues(pIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:baseurl+'/paper/delManyPaper',
+            url:baseurl+'/paper/delManyPaper/'+pIds,
             type:'post',
-            data: {
-                quesIds:JSON.stringify({"pIds":pIds})
-            },
+            dataType:'post',
             success:function (flag){
                 if (flag==true){
                     $("#table").bootstrapTable('refresh');
@@ -208,10 +207,8 @@ function delMsg(pId){
         btn: ['是','否'] //按钮
     }, function(){
         $.ajax({
-            url:baseurl+'/paper/delOnePaper',
+            url:baseurl+'/paper/delOnePaper/'+pId,
             type:'post',
-            contentType: 'application/json',
-            data:JSON.stringify({"pId":pId}),
             dataType:'json',
             success:function (res){
                 if (res==true){
