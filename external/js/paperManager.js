@@ -54,6 +54,9 @@ function load() {
             {
                 title:'试卷标题',
                 field:'pTitle',
+                // formatter:function (value,row,index){
+                //     return "<a href=''>"+value+"</a>"
+                // }
             },
             {
                 title:'试卷分类',
@@ -115,7 +118,24 @@ function load() {
                 }
             }
 
-        ]
+        ],
+        onDblClickRow:function (row,$element){
+            layer.open({
+                type:2,
+                title:'考试链接',
+                maxmin:false,
+                shadeClose:false,
+                area:['50%','50%'],
+                content:'考试-考试链接.html',
+                success:function (layero,index){
+                    let childBody=layer.getChildFrame('body',index);
+                    $(childBody).find('input[name=textUrl]').val("http://localhost:63343/exam_gzyz_front/htmls/User/7ZF9R1.html");
+                    $(childBody).find('input[name=textRandNum]').val(row.pId);
+                    // $(childBody).find('input[name=courId]').val(courId);
+                }
+            })
+
+        }
     })
 }
 
@@ -271,3 +291,4 @@ layui.use('form', function(){
     var form = layui.form;
     form.render();
 });
+

@@ -53,7 +53,7 @@
 
 <!--		 </div>-->
 		 <div >
-	    	<button type="button" class="layui-btn  layui-btn-normal float-right">确定</button>
+	    	<button type="button" class="layui-btn  layui-btn-normal float-right" onclick="queding()">确定</button>
 	        <button type="button" class="layui-btn layui-btn-normal float-right" onclick="addCour()">添加分类</button>
 		 </div>
 <script src="../assets/jquery.min.js"></script>
@@ -74,6 +74,11 @@
 			area:['50%','50%'],
 			content:'添加分类.html'
 		})
+	}
+
+	function queding(){
+		let index=parent.layer.getFrameIndex(window.name);
+		parent.layer.close(index);
 	}
 
 	</script>
