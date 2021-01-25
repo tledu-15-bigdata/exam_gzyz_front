@@ -54,7 +54,7 @@ function load() {
 function removeCour(url){
 
     $.ajax({
-        url:url1,
+        url:url,
         type:"get",
         success:function (flag){
             if (flag=="1"){

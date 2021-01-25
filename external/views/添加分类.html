@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<form class="layui-form" action="">
+<div class="layui-form" action="">
     <div class="layui-form-item layui-form-text">
 <label class="layui-form-label">添加分类</label>
 <div class="layui-input-block">
@@ -26,9 +26,8 @@
 </div>
 <button class=" layui-btn layui-btn-normal float-right ss" onclick="commitCour()">确定</button>
     </div>
-</form>
+</div>
 </body>
-
 <script src="../assets/layui.all.js"></script>
 <script src="../assets/jquery.min.js"></script>
 <script src="../lay/modules/layer.js"></script>
@@ -40,14 +39,15 @@
         jsonData.userId=localStorage.getItem('userId');
         $.ajax({
             url:'http://localhost:8080/exam_gzyz_ssm/question/type/addCourse',
-            data: JSON.stringify(jsonData),
-            type: "post",
-            contentType: "application/json",
-            dataType: "JSON",
-            success:function (flag){
-                console.log(flag)
-                let index=parent.layer.getFrameIndex(window.name)
-                if (flag==true){
+            // data: JSON.stringify(jsonData),
+            data:jsonData,
+            type:"POST",
+            // contentType: "application/json",
+            // dataType: "json",
+            success:function(res){
+                console.log(res)
+                let index=parent.layer.getFrameIndex(window.name);
+                if (res){
                     parent.layer.close(index);
                     parent.reload();
                     parent.layer.msg("添加成功")
