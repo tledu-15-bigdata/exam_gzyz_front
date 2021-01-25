@@ -2,22 +2,25 @@ $(function () {
     load();
 })
 function reload(){
-    $("#table").bootstrapTable("refresh");
+    $("#paper-QuesManageTable").bootstrapTable("refresh");
 }
 
 function load() {
-    let url="http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid";
-    $("#table").bootstrapTable({
-        url:url,
-        method:"POST",
+    $('#paper-QuesManageTable').bootstrapTable({
+        formatLoadingMessage:function (){
+            return "数据加载中....";
+        },
+        formatNoMatches:function (){
+            return "去匹配数据";
+        },
+        url:'http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid',
+        type:"POST",
         contentType: 'application/json',
         data:JSON.stringify({"pId":localStorage.getItem("pId")}),
         dataType:"JSON",
         columns:[
             {
-                title:'行号',
                 align:"center",
-                halign:"center",
                 checkbox:true,
                 visible:true,
                 formatter:function (value,row,index) {
@@ -106,7 +109,7 @@ $('#selFromStock').on('click', function(){
         fix: false,
         shadeClose: true,
         shade: 0.8,
-        area: ['80%', '80%'],
+        area: ['90%', '90%'],
         content: '../views/试卷-题库选题（弹框页）.html',
         end: function () {
             location.reload();
@@ -114,6 +117,12 @@ $('#selFromStock').on('click', function(){
     });
 })
 
+/**
+ * 点击试卷管理
+ */
+$('#pageMan').on('click',function (){
+    window.location.href='../views/试卷-试卷管理.html';
+})
 
 layui.use('form', function(){
     var form = layui.form;

@@ -111,8 +111,10 @@ function load() {
                     var quesId=row.quesId;
                     let del='<a onclick="delMsg(\''+value+'\')" href="javascript:void(0);">删除</a>';
                     let addQuestion='<a onclick="questionManager(\''+value+'\')" href="javaScript:void(0);">试题设置</a>';
-                    let  edit='<a onclick="onclick=onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')"></a>'
-                    return del+addQuestion+edit;
+                    /*let  edit='<a onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>';*/
+
+                    let  edit2='<a onclick="modifyQues(\''+row.pId+'\',\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>'
+                    return del+addQuestion+edit2;
                 }
             }
 
@@ -138,23 +140,24 @@ function questionManager(pId){
  * @param pStatus
  * @param userId
  */
-function modifyQues(pTitle,pcId,pStartTime,pEndTime,pFree,pStatus,userId){
+function modifyQues(pId,pTitle,pcId,pStartTime,pEndTime,pFree,pStatus,userId){
     layer.open({
         type:2,
         title:'编辑试卷信息',
         maxmin:false,
         shadeClose:false,
         area:['60%','90%'],
-        content:'../views/试卷-编辑试题（弹框页）.html',
+        content:'../views/试卷-编辑试卷（弹框页）.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
+            $(childBody).find('input[name="pId"]').val(pId);
             $(childBody).find('input[name="pTitle"]').val(pTitle);
-            $(childBody).find('select[name="pcId"]').val(pcId);
+            $(childBody).find('option[value='+pcId+']').attr("selected",'selected');
             $(childBody).find('input[name="pStartTime"]').val(pStartTime);
             $(childBody).find('input[name="pEndTime"]').val(pEndTime);
-            $(childBody).find('input[name="pFree"]').val(pFree);
-            $(childBody).find('input[name="pStatus"]').val(pStatus);
+            $(childBody).find('input[value='+pFree+']').val(pFree);
+            $(childBody).find('input[value='+pStatus+']').attr('checked',true);
         },
         end:function (){
             reload();
@@ -175,7 +178,6 @@ $("#delManyPaper").on('click',function (){
         var pIds='';
         for(var i=0;i<rows.length;i++){
             pIds+=rows[i].pId+",";
-
         }
         pIds=pIds.substring(0,pIds.length - 1);
         deleteQues(pIds);
@@ -191,7 +193,8 @@ function deleteQues(pIds){
             dataType:'post',
             success:function (flag){
                 if (flag==true){
-                    $("#table").bootstrapTable('refresh');
+                   alert("删除成功");
+                   reload();
                 }
             }
         })
@@ -239,13 +242,6 @@ $('#fabu').on('click', function(){
             area: ['750px', '500px'],
             /*content: '试卷-添加试卷（弹框页）.html',*/
             content: '../views/试卷-添加试卷（弹框页）.html',
-           /* success:function (layero,index){
-                let childBody=layer.getChildFrame('body',index);
-               /!* let childBody=layer.getChildFrame('body',index);
-                console.log(childBody)
-                let select=childBody[0].children[0].children[0].children[2].children[1].children[1];
-                console.log(select)*!/
-            },*/
             end: function () {
                 location.reload();
             }
