@@ -242,6 +242,13 @@ $('#fabu').on('click', function(){
             area: ['750px', '500px'],
             /*content: '试卷-添加试卷（弹框页）.html',*/
             content: '../views/试卷-添加试卷（弹框页）.html',
+           /* success:function (layero,index){
+                let childBody=layer.getChildFrame('body',index);
+               /!* let childBody=layer.getChildFrame('body',index);
+                console.log(childBody)
+                let select=childBody[0].children[0].children[0].children[2].children[1].children[1];
+                console.log(select)*!/
+            },*/
             end: function () {
                 location.reload();
             }

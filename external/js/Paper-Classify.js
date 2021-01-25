@@ -26,7 +26,7 @@ function load() {
             {
                 title:'行号',
                 align:"center",
-                halign:"center",
+               /* halign:"center",*/
                 formatter:function (value,row,index) {
                     return index+1;
                 }
@@ -34,52 +34,29 @@ function load() {
             },
             {
                 title:'试卷分类类名',
+                align:"center",
                 field:'pcName'
             },
             {
                 title:'增加时间',
+                align:"center",
                 field:'createTime',
             },
             {
                 title: '操作',
                 field: 'pcId',
+                align:"center",
                 formatter:function (value,row,index){
-                    let del='<a onclick="delMsg('+value+')" class="delMsg" href="javaScript:void(0);">删除'+value+'</a>';
-                    let edit='<a onclick="editMsg('+value+','+row.pcName+')" class="editMsg" href="javaScript:void(0);">修改'+value+'</a>';
+                    let del='<a onclick="delMsg(\''+value+'\')" class="delMsg" href="javaScript:void(0);">删除</a>';
+                    /*let del='<a id="'+value+'" onclick="delMsg(\''+value+'\')" class="delMsg" href="javaScript:void(0);">删除</a>';*/
+                    let edit='<a onclick="editMsg(\''+value+'\',\''+row.pcName+'\')" class="editMsg" href="javaScript:void(0);">修改</a>';
                     return del+" "+edit;
                 }
             }
         ]
     });
 }
-
-/**
- * 删除功能实现1：判断弹框:
- */
-$(".delMsg").click(function(){
-    layer.confirm('确定要删除此任务？', {
-        btn: ['是','否'] //按钮
-    }, function(){//确定删除触发事件
-        var data={"pcId":id};
-        $.ajax({
-            url:baseUrl+'/paper/delClassifyById',
-            type:'post',
-            contentType:'application/json;charset=UTF-8',
-            data:JSON.stringify(data),
-            dataType:'json',
-            success:function (res){
-                if(res=="1"){
-                    layer.msg('已删除', {icon: 1});
-                    reload();
-                }else {
-                    layer.msg('删除失败',  {icon: 2});
-                }
-            }
-        });
-    }, function(){
-        layer.msg('已取消',  {icon: 2});
-    });
-})
+var baseUrl='http://localhost:8080/exam_gzyz_ssm';
 /**
  * 删除功能实现2
  */
