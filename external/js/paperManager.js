@@ -67,11 +67,12 @@ function load() {
                     var pcName='';
                     $.ajax({
                         url:baseurl+'/paper/queryOneClassify',
+                        async:false,
+                        data: jsonData,
                         type: "post",
-                        contentType: "application/json",
-                        data: JSON.stringify(jsonData),
-                        dataType: "JSON",
                         success:function (res){
+                            console.log("hahahahahah")
+                            console.log(res)
                             pcName=res.pcName;
                             console.log(res.pcName);
                         }
