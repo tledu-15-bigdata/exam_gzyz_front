@@ -15,9 +15,13 @@ function load() {
         },
         url:'http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid',
         type:"POST",
-        contentType: 'application/json',
-        data:JSON.stringify({"pId":localStorage.getItem("pId")}),
-        dataType:"JSON",
+        //查询时携带的参数  data:JSON.stringify()
+        queryParams:function(params){   //上传服务器的参数
+            var temp={
+                pId:localStorage.getItem("pId")
+            };
+            return JSON.stringify(temp);
+        },
         columns:[
             {
                 align:"center",
