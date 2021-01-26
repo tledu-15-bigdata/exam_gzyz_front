@@ -1,5 +1,5 @@
 $(function () {
-    let url="http://localhost:8080/exam_gzyz_ssm/quesion/ques/queryQuestions";
+    let url="http://localhost:8080/exam_gzyz_ssm/question/ques/queryQuestions";
     load(url);
 })
 function reload(){
@@ -61,29 +61,17 @@ $('#filter').on('click',function (){
 });
 
 /**
- * 当前页全选
- */
-$('#selAll').on('click',function (){
-    $("#myAllQuestion").bootstrapTable('checkAll');
-})
-/**
- * 取消当前页全选
- */
-$('#cancelSelAll').on('click',function (){
-    $("#myAllQuestion").bootstrapTable('uncheckAll');
-});
-/**
  * 点击确定按钮，添加向试卷中添加试题
  */
 $('#Ok').on('click',function (){
-    var rows=$("#myTable").bootstrapTable('getSelections');
+    var rows=$("#myAllQuestion").bootstrapTable('getSelections');
     if (rows.length==0){
-        alert("请先选择要删除的记录");
+        alert("请先选择要添加的记录");
         return ;
     }else{
         var quesIds='';
         for(var i=0;i<rows.length;i++){
-            quesIds+=rows[i]['quesId']+",";
+            quesIds+=rows[i].quesId+",";
 
         }
         quesIds=quesIds.substring(0,quesIds.length - 1);
@@ -91,22 +79,20 @@ $('#Ok').on('click',function (){
     }
 })
 function addQues(quesIds){
-    var msg='您真的要删除吗？';
-    if(confirm(msg)==true){
-        var jsonData={"quesIds":quesIds,"pId":localStorage.getItem("pId")};
-        $.ajax({
-            url:'http:localhost:8080/exam_gzyz_ssm/quesion/ques/delManyQuestion',
-            type:'post',
-            data:JSON.stringify(jsonData),
-            contentType:'application/jaon',
-            dataType:'json',
-            success:function (flag){
-                if (flag==true){
-                    reload();
-                }
+    var jsonData={"quesIds":quesIds,"pId":localStorage.getItem("pId"),"userId":localStorage.getItem("userId")};
+    $.ajax({
+        url:baseUrl+'/paper/addManyQuestion',
+        type:'post',
+        data:JSON.stringify(jsonData),
+        contentType:'application/json',
+        dataType:'json',
+        success:function (flag){
+            if (flag==true){
+                alert("添加成功");
+                reload();
             }
-        })
-    }
+        }
+    })
 }
 
 
