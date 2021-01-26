@@ -114,8 +114,9 @@ function load() {
                     let addQuestion='<a onclick="questionManager(\''+value+'\')" href="javaScript:void(0);">试题设置</a>';
                     /*let  edit='<a onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>';*/
 
-                    let  edit2='<a onclick="modifyQues(\''+row.pId+'\',\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>'
-                    return del+addQuestion+edit2;
+                    let  edit2='<a onclick="modifyQues(\''+row.pId+'\',\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')" href="javaScript:void(0);">编辑</a>'
+                    let view='<a onclick="toViewResults(\''+value+'\')" href="javaScript:void(0);">成绩统计</a>';
+                    return del+addQuestion+edit2+view;
                 }
             }
 
@@ -130,7 +131,7 @@ function load() {
                 content:'考试-考试链接.html',
                 success:function (layero,index){
                     let childBody=layer.getChildFrame('body',index);
-                    $(childBody).find('input[name=textUrl]').val("http://localhost:63343/exam_gzyz_front/htmls/User/7ZF9R1.html");
+                    $(childBody).find('input[name=textUrl]').val("http://localhost:63342/exam_gzyz_front/htmls/User/7ZF9R1.html");
                     $(childBody).find('input[name=textRandNum]').val(row.pId);
                     // $(childBody).find('input[name=courId]').val(courId);
                 }
@@ -266,6 +267,29 @@ $('#fabu').on('click', function(){
         });
     });
 })
+
+
+function toViewResults(){
+    layer.open({
+        type:2,
+        title:'查看成绩信息',
+        maxmin:false,
+        shadeClose:false,
+        area:['60%','90%'],
+        content:'../views/试卷-阅卷评分（弹框页）.html',
+        // success:function (layero,index){
+        //     let childBody=layer.getChildFrame('body',index);
+        //     //
+        //     $(childBody).find('input[name="pId"]').val(pId);
+        //
+        // },
+        end:function (){
+            reload();
+        }
+    })
+}
+
+
 
 //判断弹框
 $(".delete").click(function(){
