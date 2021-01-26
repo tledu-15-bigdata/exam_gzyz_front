@@ -37,7 +37,6 @@ function load() {
             {
                 title:'题目信息',
                 field:'quesType',
-                align:"center",
                 formatter:function (value,row,index){
                     var trueval;
                     var second='';
@@ -61,7 +60,7 @@ function load() {
                         trueval="【简答题】 "+row.quesTitle+"。("+row.quesScore+")<br/>";
                         thired="正确答案："+row.quesAns;
                     }
-                    return second==''?trueval+thired:trueval+second+thired;
+                    return trueval+second+thired;
                 }
             }
         ]
@@ -72,7 +71,7 @@ function load() {
  * 删除选中项  pId试卷id  quesIds试题id
  */
 $("#delSelect").on('click',function (){
-    var rows=$("#table").bootstrapTable('getSelections');
+    var rows=$("#paper-QuesManageTable").bootstrapTable('getSelections');
     if (rows.length==0){
         alert("请先选择要删除的记录");
         return ;
@@ -91,7 +90,7 @@ function deleteQues(quesIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:'http:localhost:8080/exam_gzyz_ssm/paper/delQuestion',
+            url:'http://localhost:8080/exam_gzyz_ssm/paper/delQuestion',
             type:'post',
             contentType: 'application/json',
             data: JSON.stringify({"quesIds":quesIds,"pId":localStorage.getItem("pId")}),

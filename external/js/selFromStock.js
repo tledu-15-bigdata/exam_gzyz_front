@@ -1,12 +1,15 @@
 $(function () {
     let url="http://localhost:8080/exam_gzyz_ssm/question/ques/queryQuestions";
-    load(url);
+    let courId="";
+    let courType="";
+    let quesTitle="";
+    load(url,courId,courType,quesTitle);
 })
 function reload(){
     $("#myAllQuestion").bootstrapTable("refresh");
 }
 
-function load(url) {
+function load(url,courId,courType,quesTitle) {
     $("#myAllQuestion").bootstrapTable({
         url:url,
         method:"POST",
@@ -23,7 +26,11 @@ function load(url) {
             var temp={
                 offSet:params.offset, //SQL语句起始索引
                 pageNumber: params.limit, //每页显示数量
-                userId:localStorage.getItem("userId")
+                userId:localStorage.getItem("userId"),
+
+                courId:courId,
+                courType:courType,
+                quesTitle:quesTitle
             };
             return JSON.stringify(temp);
         },
@@ -51,13 +58,36 @@ function load(url) {
     })
 }
 let baseUrl='http://localhost:8080/exam_gzyz_ssm';
+let userId = localStorage.getItem("userId");
+/**
+ * 打开页面前加载试卷分类
+ */
+$.ajax({
+    url: baseUrl + '/question/type/queryCourse2',
+    type: 'post',
+    data:JSON.stringify({"userId":localStorage.getItem("userId")}),
+    contentType: 'application/json',
+    dataType: 'json',
+    success: function (res) {
+        for (var i = 0; i < res.length; i++) {
+            var option = document.createElement('option');
+            option.value = res[i].courId;
+            option.innerText = res[i].courName;
+            $('select[name="courId"]').append(option);
+        }
+    }
+});
 /**
  * 点击筛选按钮
  */
 $('#filter').on('click',function (){
    url= baseUrl+'/question/ques/queryQuestionsByCondition';
+    let courId=$('select[name="courId"]').val();
+    console.log(courId);
+    let courType="";
+    let quesTitle="";
+    load(url,courId,courType,quesTitle);
    load(url);
-   reload();
 });
 
 /**

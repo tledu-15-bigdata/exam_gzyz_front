@@ -54,9 +54,6 @@ function load() {
             {
                 title:'试卷标题',
                 field:'pTitle',
-                // formatter:function (value,row,index){
-                //     return "<a href=''>"+value+"</a>"
-                // }
             },
             {
                 title:'试卷分类',
@@ -73,9 +70,10 @@ function load() {
                         dataType: "JSON",
                         success:function (res){
                             pcName=res.pcName;
-                            console.log(res.pcName);
+                            console.log(pcName);
                         }
                     });
+                    console.log(pcName+"&&&&&&&&&&&*********")
                     return pcName;
                 }
             },
@@ -90,14 +88,14 @@ function load() {
                 title:'结束时间',
                 field:'pEndTime',
             },{
-                title:'随意时间考试',
-                field: 'pFree',
+                title:'状态',
+                field: 'pStatus',
                 formatter:function (value,row,index){
                     var msg;
                     if (value==1){
-                        msg="是";
+                        msg="已考";
                     }else if (value==0){
-                        msg="否";
+                        msg="未考";
                     }
                     return msg;
                 }
@@ -173,7 +171,7 @@ function modifyQues(pId,pTitle,pcId,pStartTime,pEndTime,pFree,pStatus,userId){
             //
             $(childBody).find('input[name="pId"]').val(pId);
             $(childBody).find('input[name="pTitle"]').val(pTitle);
-            $(childBody).find('option[value='+pcId+']').attr("selected",'selected');
+            $(childBody).find('option[value='+pcId+']').attr("selected",true);
             $(childBody).find('input[name="pStartTime"]').val(pStartTime);
             $(childBody).find('input[name="pEndTime"]').val(pEndTime);
             $(childBody).find('input[value='+pFree+']').val(pFree);
