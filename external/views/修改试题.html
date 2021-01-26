@@ -204,17 +204,19 @@
     });
 
     //试题类型模块切换
-    $('input[type=radio][name=bedStatus]').change(function() {
-        if (this.value ==0) {
-            $("#test_classify_box1").css('display','block');
-            $("#test_classify_box2").css('display','none');
+    $(document).ready(function(){
+        $('input[type=radio][name=bedStatus]').change(function() {
 
-        }
-        else if (this.value ==1) {
-            // alert("Transfer Thai Gayo");
-            $("#test_classify_box2").css('display','block');
-            $("#test_classify_box1").css('display','none');
-        }
+            if (this.value ==0) {
+                $("#test_classify_box1").css('display','block');
+                $("#test_classify_box2").css('display','none');
+            }
+            else if (this.value ==1) {
+                // alert("Transfer Thai Gayo");
+                $("#test_classify_box2").css('display','block');
+                $("#test_classify_box1").css('display','none');
+            }
+        })
     });
 
 

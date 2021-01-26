@@ -274,7 +274,7 @@ function commitQues2(){
         type: "post",
         contentType: "application/json",
         dataType: "JSON",
-        success: function(result) {
+        success: function(flag) {
             let index=parent.layer.getFrameIndex(window.name)
             if (flag&&flag=="1"){
                 parent.layer.close(index);

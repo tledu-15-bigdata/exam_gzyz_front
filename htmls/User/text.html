@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link  rel="stylesheet" href="../../external/css/test.css">
+
+</head>
+<body>
+<div class="testBox">
+    <div class="testHead"></div>
+    <div class="testContent">
+
+    </div>
+    <div><button style="display:block;margin: 0 auto"  onclick="commitAns()" id="box1_submit">交卷</button></div>
+
+
+</div>
+</body>
+<script src="../../external/assets/jquery.min.js"></script>
+<script>
+<!--定义一个全局数组，用来封装学生考试信息-->
+    var PaperData= new Array();
+
+
+    $(document).ready(function (){
+        var jsonData={};
+        jsonData.pId=localStorage.getItem("pId")
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid",
+            data: JSON.stringify(jsonData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(result) {
+                // console.log("哈哈哈哈哈哈哈哈哈哈")
+                $(".testContent").html("");
+                var array = result;
+                // console.log(array)
+                var k = result.length;
+                for (var i = 0; i < k; i++) {
+
+                    var itemQues=$("<div class='itemQues'>");
+
+                    if(array[i].quesType==0){
+
+
+
+                        var pObj=$("<p class='testQuesTitle'>");
+                        var spanObj=$("<span class=\"testindexType\">")
+                        pObj.append(spanObj);
+                        spanObj.text("["+i+"/"+k+"]"+"单项选择题")
+                        pObj.text(array[i].quesTitle)
+                        itemQues.append(pObj)
+
+                        var raDiv=$("<div class=\"ra4\">")
+
+                        var raDiv1=$("<div>")
+                        var raObj1=$("<input type=\"radio\" name=\"item1\">")
+                        var raSpanA=$("<span class=\"testQuesA\">")
+                        raSpan.text(array[i].quesSelA)
+                        raObj1.val(array[i].quesSelA)
+                        raDiv1.append(raObj1+raSpanA)
+                        raDiv.append(raDiv1)
+
+
+                        var raDiv2=$("<div>")
+                        var raObj2=$("<input type=\"radio\" name=\"item1\">")
+                        var raSpanB=$("<span class=\"testQuesA\">")
+                        raSpan.text(array[i].quesSelB)
+                        raObj2.val(array[i].quesSelB)
+                        raDiv2.append(raObj2+raSpanB)
+                        raDiv.append(raDiv2)
+
+                        var raDiv3=$("<div>")
+                        var raObj3=$("<input type=\"radio\" name=\"item1\">")
+                        var raSpanC=$("<span class=\"testQuesA\">")
+                        raSpan.text(array[i].quesSelC)
+                        raObj3.val(array[i].quesSelC)
+                        raDiv3.append(raObj3+raSpanC)
+                        raDiv.append(raDiv3)
+
+                        var raDiv4=$("<div>")
+                        var raObj4=$("<input type=\"radio\" name=\"item1\">")
+                        var raSpanD=$("<span class=\"testQuesA\">")
+                        raSpan.text(array[i].quesSelD)
+                        raObj4.val(array[i].quesSelD)
+                        raDiv4.append(raObj4+raSpanD)
+                        raDiv.append(raDiv4)
+
+                        itemQues.append(raDiv)
+
+                        //录入考生考试信息试题
+                        var commonSen={};
+                        commonSen.pId=localStorage.getItem("pId");
+                        commonSen.pqId=array[i].pqId;
+                        commonSen.myAns=$("input[name=item1]:checked").val()
+                        commonSen.stuId=localStorage.getItem("stuId");
+                        PaperData.push(commonSen)
+
+                    }else if(array[i].quesType==1){
+                        var pObj=$("<p class='testQuesTitle'>");
+                        var spanObj=$("<span class=\"testindexType\">")
+                        pObj.append(spanObj);
+                        spanObj.text("["+i+"/"+k+"]"+"简答题")
+                        pObj.text(array[i].quesTitle)
+                        itemQues.append(pObj)
+
+                        var textArea=$("<textarea class='PatextArea' placeholder='请输入答案'>");
+                        itemQues.append(textArea)
+
+                        var commonSen={};
+                        commonSen.pId=localStorage.getItem("pId");
+                        commonSen.pqId=array[i].pqId;
+                        commonSen.myAns=$(".PatextArea").val()
+                        commonSen.stuId=localStorage.getItem("stuId");
+                        PaperData.push(commonSen)
+                    }
+
+                    $(".testContent").append(itemQues);
+
+                }
+
+            }
+
+        })
+    })
+
+console.log(PaperData)
+
+    function commitAns(){
+        $.ajax({
+            url: "http://localhost:8080/exam_gzyz_ssm/question/type/queryOnlyCourse",
+            data: JSON.stringify(PaperData),
+            type: "post",
+            contentType: "application/json",
+            dataType: "JSON",
+            success: function(res) {
+                // console.log("哈哈哈哈哈哈哈哈哈哈")
+
+
+            }
+
+        })
+    }
+</script>
+</html>
