@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.25试卷模块测试push2--君" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nJXfUA7FDtTSOPYFKFRK7svsHX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/views" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external\views" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\htmls" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external\assets\css" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\htmls\User" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external\js" />
+      <recent name="E:\webstore\workplace\exam_gzyz_front\htmls" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="" />
+      <created>1611109270713</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611109270713</updated>
+      <workItem from="1611109271851" duration="16666000" />
+      <workItem from="1611140327375" duration="18602000" />
+      <workItem from="1611188884646" duration="1846000" />
+      <workItem from="1611199278293" duration="1355000" />
+      <workItem from="1611330917645" duration="5061000" />
+      <workItem from="1611358249867" duration="40481000" />
+      <workItem from="1611454733183" duration="18866000" />
+      <workItem from="1611493792129" duration="12028000" />
+      <workItem from="1611530183187" duration="9338000" />
+      <workItem from="1611553509245" duration="1148000" />
+      <workItem from="1611558618365" duration="14747000" />
+      <workItem from="1611586415225" duration="1561000" />
+      <workItem from="1611622793162" duration="108000" />
+      <workItem from="1611626295877" duration="13231000" />
+    </task>
+    <task id="LOCAL-00001" summary="添加login.html">
+      <created>1611113122288</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611113122289</updated>
+    </task>
+    <task id="LOCAL-00002" summary="添加login.html2">
+      <created>1611113299082</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611113299082</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加login.html3">
+      <created>1611113411230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611113411230</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1.20User模块（头像上传未完成）">
+      <created>1611189366296</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611189366296</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1.20User模块">
+      <created>1611190660131</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611190660131</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.20User模块测试">
+      <created>1611336090486</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611336090486</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1.20User模块测试2">
+      <created>1611361712200</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611361712203</updated>
+    </task>
+    <task id="LOCAL-00008" summary="1.24试卷模块">
+      <created>1611472545954</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611472545955</updated>
+    </task>
+    <task id="LOCAL-00009" summary="1.24试卷模块2">
+      <created>1611484245137</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611484245141</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1.24试卷模块测试">
+      <created>1611536404714</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611536404716</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1.24试卷模块测试--君">
+      <created>1611543411278</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611543411280</updated>
+    </task>
+    <task id="LOCAL-00012" summary="1.25试卷模块测试--君">
+      <created>1611584343414</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611584343431</updated>
+    </task>
+    <task id="LOCAL-00013" summary="1.25试卷模块测试push--君">
+      <created>1611622874029</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611622874029</updated>
+    </task>
+    <task id="LOCAL-00014" summary="1.25试卷模块测试push2--君">
+      <created>1611650766272</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611650766275</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加login.html" />
+    <MESSAGE value="添加login.html2" />
+    <MESSAGE value="添加login.html3" />
+    <MESSAGE value="1.20User模块（头像上传未完成）" />
+    <MESSAGE value="1.20User模块" />
+    <MESSAGE value="1.20User模块测试" />
+    <MESSAGE value="1.20User模块测试2" />
+    <MESSAGE value="1.24试卷模块" />
+    <MESSAGE value="1.24试卷模块2" />
+    <MESSAGE value="1.24试卷模块测试" />
+    <MESSAGE value="1.24试卷模块测试--君" />
+    <MESSAGE value="1.25试卷模块测试--君" />
+    <MESSAGE value="1.25试卷模块测试push--君" />
+    <MESSAGE value="1.25试卷模块测试push2--君" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.25试卷模块测试push2--君" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611379813659">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1611379813659" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611383163631">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1611383163631" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1611505610335">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1611505610335" />
+    <state x="534" y="261" key="Github.ShareDialog" timestamp="1611110839789">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="534" y="261" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1611110839789" />
+    <state x="454" y="68" key="Github.UntrackedFilesDialog" timestamp="1611110999040">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="454" y="68" key="Github.UntrackedFilesDialog/0.0.1366.728@0.0.1366.728" timestamp="1611110999040" />
+    <state x="318" y="124" key="MultipleFileMergeDialog" timestamp="1611361885469">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="318" y="124" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1611361885469" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1611188978591">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1611188978591" />
+    <state x="563" y="276" key="VCS.EditChangelistDialog" timestamp="1611111662801">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="563" y="276" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1611111662801" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1611650803733">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611650803733" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1611631576400">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1611631576400" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1611389428392">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1611389428392" />
+  </component>
+</project>
