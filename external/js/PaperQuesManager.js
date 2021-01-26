@@ -14,7 +14,9 @@ function load() {
             return "去匹配数据";
         },
         url:'http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid',
-        type:"POST",
+        method:"POST",
+        dataType:"JSON",
+        striped:true,  //是否显示行间隔色
         //查询时携带的参数  data:JSON.stringify()
         queryParams:function(params){   //上传服务器的参数
             var temp={
