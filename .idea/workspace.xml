@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="209e7d8f-6f02-41ab-bcfb-b661f68738e4" name="Default Changelist" comment="考试" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1nMRj9rp48ry3OGYd4EuDn3LWjk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/js" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\js" />
+      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\css" />
+      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\images" />
+      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\htmls\User" />
+      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\assets" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="209e7d8f-6f02-41ab-bcfb-b661f68738e4" name="Default Changelist" comment="" />
+      <created>1611198106081</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611198106081</updated>
+      <workItem from="1611198107116" duration="39690000" />
+      <workItem from="1611277977226" duration="57810000" />
+      <workItem from="1611465366407" duration="2843000" />
+      <workItem from="1611489481447" duration="15653000" />
+      <workItem from="1611536465217" duration="36603000" />
+      <workItem from="1611626095973" duration="10892000" />
+    </task>
+    <task id="LOCAL-00001" summary="试题分类的CRUD，试题的查询删除">
+      <created>1611246553888</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611246553888</updated>
+    </task>
+    <task id="LOCAL-00002" summary="题库模块">
+      <created>1611331809475</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611331809475</updated>
+    </task>
+    <task id="LOCAL-00003" summary="题库模块">
+      <created>1611339252434</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611339252434</updated>
+    </task>
+    <task id="LOCAL-00004" summary="题库模块">
+      <created>1611465391102</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611465391102</updated>
+    </task>
+    <task id="LOCAL-00005" summary="题库模块">
+      <created>1611489512331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611489512331</updated>
+    </task>
+    <task id="LOCAL-00006" summary="题库模块">
+      <created>1611506497387</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611506497387</updated>
+    </task>
+    <task id="LOCAL-00007" summary="考试">
+      <created>1611592087397</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611592087397</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="试题分类的CRUD，试题的查询删除" />
+    <MESSAGE value="题库模块" />
+    <MESSAGE value="考试" />
+    <option name="LAST_COMMIT_MESSAGE" value="考试" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="350" y="0" key="CommitChangelistDialog2" timestamp="1611592085842">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="350" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1611592085842" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1611312527112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611312527112" />
+    <state x="403" y="172" key="MultipleFileMergeDialog" timestamp="1611489526708">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="403" y="172" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1611489526708" />
+    <state x="296" y="125" key="Vcs.Push.Dialog.v2" timestamp="1611592100573">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="296" y="125" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611592100573" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1611234533330">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611234533330" />
+  </component>
+</project>
