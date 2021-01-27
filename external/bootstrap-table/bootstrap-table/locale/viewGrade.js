@@ -11,21 +11,17 @@ function load() {
     let url="http://localhost:8080/exam_gzyz_ssm/exam/queryGrageBypid";
     $("#gradeViewTab").bootstrapTable({
         url:url,
-        // method:"POST",
-        // dataType:"JSON",
+         method:"POST",
+         dataType:"JSON",
 
-        sidePagination:"server", //服务器端分页
         striped:true,  //是否显示行间隔色
-        pageNumber:1,   //初始化加载第一页
-        pagination:true,  //是否分页
-        pageSize:5,   //单页记录数
 
         //查询时携带的参数  data:JSON.stringify()
         queryParams:function(params){   //上传服务器的参数
             var temp={
                 pId:localStorage.getItem("pId")
             };
-            return temp;
+            return JSON.stringify(temp);
         },
         columns:[
             // {

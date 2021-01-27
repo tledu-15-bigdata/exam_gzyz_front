@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26试卷模块测试3--君">
+    <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26试卷模块测试33--君">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/js/PaperQuesManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/PaperQuesManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/bootstrap-table/bootstrap-table/locale/viewGrade.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/bootstrap-table/bootstrap-table/locale/viewGrade.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/external/js/paperManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/paperManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/js/selFromStock.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/selFromStock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/views/试卷-编辑试卷（弹框页）.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/试卷-编辑试卷（弹框页）.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/views/试卷-题库选题（弹框页）.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/试卷-题库选题（弹框页）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/views/考试-考试链接.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/考试-考试链接.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmls/User/7ZF9R1.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/7ZF9R1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmls/User/stuLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/stuLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmls/User/text.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/text.html" afterDir="false" />
     </list>
     <list id="5c479527-ef98-48f6-9169-0750fe439a1b" name="ignore" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -29,6 +30,23 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="20" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="3" end1="4" start2="21" end2="22" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="5" end1="6" start2="23" end2="24" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="7" end1="10" start2="25" end2="29" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="31" end1="31" start2="50" end2="67" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="32" end1="47" start2="68" end2="68" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="48" end1="48" start2="69" end2="70" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="134" end1="135" start2="156" end2="164" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="139" end1="139" start2="168" end2="180" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="144" end1="145" start2="185" end2="187" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="151" end1="151" start2="193" end2="197" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+      </ranges>
+    </file>
   </component>
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/.idea/workspace.xml">

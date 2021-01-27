@@ -66,7 +66,8 @@ function load() {
                         url:baseurl+'/paper/queryOneClassify',
                         type: "post",
                         contentType: "application/json",
-                        data: JSON.stringify(jsonData),
+                        data: jsonData,//formdata
+                        async:false,//同步
                         dataType: "JSON",
                         success:function (res){
                             pcName=res.pcName;
