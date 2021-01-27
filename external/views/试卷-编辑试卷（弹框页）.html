@@ -21,9 +21,9 @@
         <input type="datetime-local" name="pStartTime">
         结束时间
         <input type="datetime-local" name="pEndTime" ><br>
-        <!--是否随意时间
-        <input type="radio" name="pFree" value="1">是
-        <input type="radio" name="pFree" value="0">否<br>-->
+        <!--是否随意时间-->
+        <input type="radio" name="pFree" value="1" style="display: none">
+        <input type="radio" name="pFree" value="0" style="display: none"><br>
         状态
         <input type="radio" name="pStatus" value="1" >开考
         <input type="radio" name="pStatus" value="0">未考
@@ -126,6 +126,7 @@
             let pEndTime = $('input[name="pEndTime"]').val();
             let pFree = $('input[name="pFree"]').val();
             let pStatus = $('input[name="pStatus"]').val();
+            console.log("状态 1开考 0未考===>"+pStatus)
             jsonData = {};
             jsonData.pId=pId;
             jsonData.pTitle = pTitle;
@@ -145,7 +146,6 @@
                 success: function (res) {
                     if (res == true) {
                         alert("修改成功");
-                        window.close();
                     } else {
                         alert("修改失败");
                     }

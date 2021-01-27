@@ -91,14 +91,14 @@ function load() {
                 title:'结束时间',
                 field:'pEndTime',
             },{
-                title:'随意时间考试',
-                field: 'pFree',
+                title:'状态',
+                field: 'pStatus',
                 formatter:function (value,row,index){
                     var msg;
                     if (value==1){
-                        msg="是";
+                        msg="已考";
                     }else if (value==0){
-                        msg="否";
+                        msg="未考";
                     }
                     return msg;
                 }

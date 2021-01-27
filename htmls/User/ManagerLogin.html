@@ -24,9 +24,8 @@ $(document).ready(function () {
      <div class="main_right">
         <div class="main_r_up">
             <img src="../../external/images/user.png" />
-            <div class="pp">登录</div>
+            <div class="pp">管理员登录</div>
         </div>
-        <div class="sub"><p>还没有账号？<a href="zhuce1.html"><span class="blue">立即注册</span></a></p></div>
          <form action="#" id="loginForm">
              <div class="txt">
                  <span style="letter-spacing:8px;">登录账号:</span>
@@ -36,16 +35,7 @@ $(document).ready(function () {
                  <span style="letter-spacing:4px;">登录密码:</span>
                  <input name="userPwd" type="password" class="txtphone" placeholder="请输入登录密码"/>
              </div>
-<!--             <div class="txt">-->
-<!--                 <span style=" float:left;letter-spacing:8px;">验证码:</span>-->
-<!--                 <input name="" type="text" class="txtyzm" placeholder="请输入页面验证码"/>-->
-<!--                 <img src="../../external/images/yanzhengma.png" class="yzmimg"/>-->
-<!--             </div>-->
          </form>
-        <div class="xieyi">
-            <input name="" type="checkbox" value="" checked="checked"/>
-            记住我 <a href="ManagerLogin.html"><span class="blue" style=" padding-left:130px; cursor:pointer">管理员登录</span></a>
-        </div>
         <div id="loginBtn" class="xiayibu">登录</div>
      </div>
   </div>
@@ -67,7 +57,7 @@ $(document).ready(function () {
         $('#loginBtn').click(function (){
             console.log($('#loginForm').serialize());
             $.ajax({
-                url:'http://localhost:8080/exam_gzyz_ssm/user/login',
+                url:'http://localhost:8080/exam_gzyz_ssm/manager/login',
                 type:'post',
                 data:$('#loginForm').serialize(),//formdata数据
                 dataType:'json',
@@ -76,9 +66,7 @@ $(document).ready(function () {
                     if (res.flag=="1"){//登录成功
                         localStorage.setItem("userPhone",$('input[name="userPhone"]').val());
                         localStorage.setItem("userId",res.userId);
-                        console.log(res.userId);
-                        console.log(localStorage.getItem("userId"));
-                        window.location.href='../CommonPage.html';
+                        window.location.href='../CommonPageManager.html';
                     }else {
                         alert("登录失败");
                     }

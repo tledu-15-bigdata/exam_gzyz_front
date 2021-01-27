@@ -28,7 +28,7 @@
 
     <!--面包屑导航-->
     <div class="layui-row">
-        <form class="layui-form" action="">
+        <form class="layui-form" action="#">
             <div class="layui-form-item">
                 <label class="layui-form-label">登录账号</label>
                 <div class="layui-input-block" style="width: 500px">
@@ -49,12 +49,15 @@
                     <button type="button" class="layui-btn layui-btn-normal editBtn">修改</button>
                 </div>
             </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block" style="width: 500px">
-                    <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>
-                </div>
-            </div>
+            <input type="text" name="userImg" style="display: none">
         </form>
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="width: 500px">
+                <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>
+            </div>
+        </div>
+
+
 
         <div class="layui-form-item">
             <label class="layui-form-label">我的头像</label>
@@ -84,11 +87,9 @@
 <script>
     $(function (){
         /*打开页面前去后端查询数据*/
-        alert("我去查询信息了");
         var myPhone=localStorage.getItem("userPhone");
         console.log(myPhone);
         var phone={"userPhone":myPhone};
-
         $.ajax({
             url:'http://localhost:8080/exam_gzyz_ssm/user/queryMyMsg',
             type:'post',
@@ -101,6 +102,7 @@
                     $('#myPhone').val(res.userPhone);
                     $('#myName').val(res.userName);
                     $('#myPwd').val(res.userPwd);
+                    $('input[name="userImg"]').val(res.userImg);
                     $('#myImg').attr('src',res.userImg);
                 }
             }
@@ -117,24 +119,8 @@
             console.log($('#myPhone').val());
             console.log($('#myName').val());
             console.log($('#myPwd').val());
-            var data={"userPhone":$('#myPhone').val(),"userName":$('#myName').val(),"userPwd":$('#myPwd').val()};
-            $.ajax({
-                url:'http://localhost:8080/exam_gzyz_ssm/user/editMyMsg',
-                type:'post',
-                contentType:'application/json;charset=UTF-8',
-                data:JSON.stringify(data),//json字符串
-                dataType:'json',
-                success:function (res){
-                    if (res=="1"){
-                        alert("修改成功");
-                    }else {
-                        alert("修改失败");
-                    }
-                }
-            })
+            editUserMsg();
         });
-
-
 
         /*头像上传*/
         var BASE_URL="http://localhost:63342/exam_gzyz_front";
@@ -186,11 +172,40 @@
         //result 后端返回的数据   JSON格式
         uploader.on( 'uploadSuccess', function( file ,result) {
             $( '#'+file.id ).addClass('upload-state-done');
-            console.log(result);
+
+            console.log("图像路径"+result);
+            $('input[name="userImg"]').val(result);
+            editUserMsg();
         });
         function upFile(){
             uploader.upload();//实现上传
         }
     })
+
+    /**
+     * 修改用户信息函数
+     */
+    function editUserMsg(){
+        var data={};
+        data.userId=localStorage.getItem("userId");
+        data.userPhone=$('#myPhone').val();
+        data.userName=$('#myName').val();
+        data.userPwd=$('#myPwd').val();
+        data.userImg=$('input[name="userImg"]').val();
+        $.ajax({
+            url:'http://localhost:8080/exam_gzyz_ssm/user/editMyMsg',
+            type:'post',
+            contentType:'application/json;charset=UTF-8',
+            data:JSON.stringify(data),//json字符串
+            dataType:'json',
+            success:function (res){
+                if (res=="1"){
+                    alert("修改成功");
+                }else {
+                    alert("修改失败");
+                }
+            }
+        })
+    }
 </script>
 </html>
