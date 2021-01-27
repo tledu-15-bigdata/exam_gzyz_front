@@ -1,9 +1,9 @@
 $(function () {
     let url="http://localhost:8080/exam_gzyz_ssm/question/ques/queryQuestions";
     let courId="";
-    let courType="";
+    let quesType="";
     let quesTitle="";
-    load(url,courId,courType,quesTitle);
+    load(url,courId,quesType,quesTitle);
 })
 function reload(){
     $("#myAllQuestion").bootstrapTable("refresh");
@@ -81,13 +81,14 @@ $.ajax({
  * 点击筛选按钮
  */
 $('#filter').on('click',function (){
-   url= baseUrl+'/question/ques/queryQuestionsByCondition';
+    url= baseUrl+'/question/ques/queryQuestionsByCondition';
     let courId=$('select[name="courId"]').val();
+    let quesType=$('select[name="quesType"]').val();
+    let quesTitle=$('select[name="quesTitle"]').val();
     console.log(courId);
-    let courType="";
-    let quesTitle="";
-    load(url,courId,courType,quesTitle);
-   load(url);
+    console.log(quesType);
+    console.log(quesTitle);
+    load(url,courId,quesType,quesTitle);
 });
 
 /**

@@ -88,7 +88,6 @@
     </div>
 </div>
 
-
 </body>
 <script>
     $(function (){
@@ -104,12 +103,15 @@
             dataType:'json',
             success:function (res){
                 console.log(res);
+                console.log(res.userImg);
+                /*PersonalPage.html:108 E:\IntelliJ IDEA\workplace2\exam_gzyz_ssm\target\exam_gzyz_ssm\uploadFile\20210127\2e5a5e17-5919-4078-83dd-57bd8a7c12d6_liying.jpg*/
                 if (res!=null){
                     $('#myPhone').val(res.userPhone);
                     $('#myName').val(res.userName);
                     $('#myPwd').val(res.userPwd);
                     $('input[name="userImg"]').val(res.userImg);
-                    $('#myImg').attr('src',res.userImg);
+                    $('#myImg').attr('src','http://localhost:8080'+res.userImg.substring(48));
+                    console.log('http://localhost:8080'+res.userImg.substring(48));
                 }
             }
         })
@@ -181,9 +183,9 @@
     uploader.on( 'uploadSuccess', function( file ,result) {
         $( '#'+file.id ).addClass('upload-state-done');
 
-        console.log("图像路径"+result);
-        $('input[name="userImg"]').val(result);
-        editUserMsg();
+        console.log("图像路径"+result._raw);
+        $('input[name="userImg"]').val(result._raw);
+        alert("上传成功,请点击确认修改");
     });
     function upFile(){
         uploader.upload();//实现上传
@@ -199,6 +201,7 @@
         data.userName=$('#myName').val();
         data.userPwd=$('#myPwd').val();
         data.userImg=$('input[name="userImg"]').val();
+        console.log(data);
         $.ajax({
             url:'http://localhost:8080/exam_gzyz_ssm/user/editMyMsg',
             type:'post',
@@ -208,6 +211,7 @@
             success:function (res){
                 if (res=="1"){
                     alert("修改成功");
+
                 }else {
                     alert("修改失败");
                 }

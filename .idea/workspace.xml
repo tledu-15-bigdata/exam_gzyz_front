@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26系统模块--君">
-      <change afterPath="$PROJECT_DIR$/htmls/User/ManagerLogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/js/paperManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/paperManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/views/试卷-编辑试卷（弹框页）.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/试卷-编辑试卷（弹框页）.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/CommonPageManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/CommonPageManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/js/selFromStock.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/selFromStock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/views/试卷-题库选题（弹框页）.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/试卷-题库选题（弹框页）.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htmls/User/PersonalPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/PersonalPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/User/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/login.html" afterDir="false" />
     </list>
     <list id="5c479527-ef98-48f6-9169-0750fe439a1b" name="ignore" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -35,18 +32,14 @@
     <file path="$PROJECT_DIR$/.idea/workspace.xml">
       <ranges>
         <range start1="2" end1="2" start2="2" end2="20" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="3" end1="7" start2="21" end2="23" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="8" end1="11" start2="24" end2="29" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="37" end1="54" start2="55" end2="67" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="67" end1="68" start2="80" end2="81" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="77" end1="77" start2="90" end2="91" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="81" end1="82" start2="95" end2="95" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="98" end1="99" start2="111" end2="112" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="163" end1="164" start2="176" end2="184" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="187" end1="188" start2="207" end2="209" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="198" end1="198" start2="219" end2="223" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="216" end1="218" start2="241" end2="243" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="219" end1="219" start2="244" end2="245" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="4" end1="5" start2="22" end2="22" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="6" end1="9" start2="23" end2="25" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="10" end1="11" start2="26" end2="26" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="37" end1="49" start2="52" end2="60" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="93" end1="94" start2="104" end2="106" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="165" end1="166" start2="177" end2="185" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="218" end1="219" start2="237" end2="238" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="221" end1="222" start2="240" end2="241" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
       </ranges>
     </file>
   </component>
@@ -91,7 +84,8 @@
       <workItem from="1611489481447" duration="15653000" />
       <workItem from="1611536465217" duration="36603000" />
       <workItem from="1611626095973" duration="10892000" />
-      <workItem from="1611709464960" duration="15414000" />
+      <workItem from="1611709464960" duration="15692000" />
+      <workItem from="1611749647666" duration="9089000" />
     </task>
     <task id="LOCAL-00001" summary="试题分类的CRUD，试题的查询删除">
       <created>1611246553888</created>
