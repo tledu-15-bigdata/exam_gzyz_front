@@ -70,11 +70,11 @@ function load() {
                 title:'状态',
                 field:'isDelete',
                 formatter:function(value,row,index){
-                    let status='';
+                    let status
                     if(value==0){
-                        status='<a class="editStatus(\''+row.userId+'\')" title="点击禁用" href="javascript:void(0);">已启动</a>';
+                        status='<a onclick="editStatus(\''+row.userId+'\',\''+row.isDelete+'\')" title="点击禁用" href="javascript:void(0);">已启动</a>';
                     }else {
-                        status='<a class="editStatus(\''+row.userId+'\')" title="点击启动" href="javascript:void(0);">已禁用</a>';
+                        status='<a onclick="editStatus(\''+row.userId+'\',\''+row.isDelete+'\')" title="点击启动" href="javascript:void(0);">已禁用</a>';
                     }
                     return status;
                 }
@@ -88,14 +88,24 @@ function load() {
  * 修改用户状态
  * @param userId
  */
-function editStatus(userId){
+function editStatus(userId,isDelete){
+    if(isDelete==0){
+        isDelete=1
+    }else {
+        isDelete=0
+    }
+
     layer.confirm('确定要修改状态？', {
         btn: ['是','否'] //按钮
     }, function(){
         $.ajax({
             url:baseurl+'/Manager/managerUser',
             type:'post',
-            data:JSON.stringify({"userId":userId}),
+            data:JSON.stringify(
+                {"userId":userId,
+                    "isDelete":isDelete},
+
+                ),
             contentType:'application/json',
             dataType:'json',
             success:function (res){

@@ -51,11 +51,11 @@
             </div>
             <input type="text" name="userImg" style="display: none">
         </form>
-        <div class="layui-form-item">
-            <div class="layui-input-block" style="width: 500px">
-                <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>
-            </div>
-        </div>
+<!--        <div class="layui-form-item">-->
+<!--            <div class="layui-input-block" style="width: 500px">-->
+<!--                <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>-->
+<!--            </div>-->
+<!--        </div>-->
 
 
 
@@ -77,6 +77,12 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="width: 500px">
+                <button id="commitEdit" type="button" class="layui-btn layui-btn-fluid">确认修改</button>
             </div>
         </div>
     </div>
@@ -122,65 +128,66 @@
             editUserMsg();
         });
 
-        /*头像上传*/
-        var BASE_URL="http://localhost:63342/exam_gzyz_front";
-        var thumbnailWidth = 1;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档
-        var thumbnailHeight = 1;
-        //直接引用 上传对象   WebUploader
-        var uploader = WebUploader.create({
-            // 选完文件后，是否自动上传。
-            // auto: true,
-            // swf文件路径
-            swf: BASE_URL + '/external/webuploader-0.15/Uploader.swf',
-            // 文件接收服务端。
-            server: 'http://localhost:8080/exam_gzyz_ssm/user/ImgUpload',
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#filePicker',
-            // 只允许选择图片文件。
-            accept: {
-                title: 'Images',
-                extensions: 'gif,jpg,jpeg,bmp,png',
-                mimeTypes: 'image/*'
-            }
-        })
-        // // 当有文件添加进来的时候  文件队列
-        uploader.on( 'fileQueued', function( file ) {
-            console.log("hahahah")
-            $list=$("#thelist");
-            var $li = $(
-                '<div id="' + file.id + '" class="file-item thumbnail">' +
-                '<img>' +
-                '<div class="info">' + file.name + '</div>' +
-                '</div>'
-                ),
-                $img = $li.find('img');
-            // $list为容器jQuery实例
-            $list.append( $li );
-            // 创建缩略图
-            // 如果为非图片文件，可以不用调用此方法。
-            // thumbnailWidth x thumbnailHeight 为 100 x 100
-            uploader.makeThumb( file, function( error, src ) {
-                if ( error ) {
-                    $img.replaceWith('<span>不能预览</span>');
-                    return;
-                }
-                $img.attr( 'src', src );
-            }, thumbnailWidth, thumbnailHeight );
-        });
-        //File  每一次上环的内容对象
-        //result 后端返回的数据   JSON格式
-        uploader.on( 'uploadSuccess', function( file ,result) {
-            $( '#'+file.id ).addClass('upload-state-done');
 
-            console.log("图像路径"+result);
-            $('input[name="userImg"]').val(result);
-            editUserMsg();
-        });
-        function upFile(){
-            uploader.upload();//实现上传
+
+    })
+    var BASE_URL="http://localhost:63342/exam_gzyz_front";
+    var thumbnailWidth = 1;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档
+    var thumbnailHeight = 1;
+    //直接引用 上传对象   WebUploader
+    var uploader = WebUploader.create({
+        // 选完文件后，是否自动上传。
+        // auto: true,
+        // swf文件路径
+        swf: BASE_URL + '/external/webuploader-0.15/Uploader.swf',
+        // 文件接收服务端。
+        server: 'http://localhost:8080/exam_gzyz_ssm/user/ImgUpload',
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '#filePicker',
+        // 只允许选择图片文件。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
         }
     })
+    // // 当有文件添加进来的时候  文件队列
+    uploader.on( 'fileQueued', function( file ) {
+        console.log("hahahah")
+        $list=$("#thelist");
+        var $li = $(
+            '<div id="' + file.id + '" class="file-item thumbnail">' +
+            '<img>' +
+            '<div class="info">' + file.name + '</div>' +
+            '</div>'
+            ),
+            $img = $li.find('img');
+        // $list为容器jQuery实例
+        $list.append( $li );
+        // 创建缩略图
+        // 如果为非图片文件，可以不用调用此方法。
+        // thumbnailWidth x thumbnailHeight 为 100 x 100
+        uploader.makeThumb( file, function( error, src ) {
+            if ( error ) {
+                $img.replaceWith('<span>不能预览</span>');
+                return;
+            }
+            $img.attr( 'src', src );
+        }, thumbnailWidth, thumbnailHeight );
+    });
+    //File  每一次上环的内容对象
+    //result 后端返回的数据   JSON格式
+    uploader.on( 'uploadSuccess', function( file ,result) {
+        $( '#'+file.id ).addClass('upload-state-done');
+
+        console.log("图像路径"+result);
+        $('input[name="userImg"]').val(result);
+        editUserMsg();
+    });
+    function upFile(){
+        uploader.upload();//实现上传
+    }
 
     /**
      * 修改用户信息函数
