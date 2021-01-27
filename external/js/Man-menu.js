@@ -3,7 +3,7 @@ $(function () {
     load();
 })
 function reload(){
-    $("#menuTable").bootstrapTable("refresh");
+    $("#menu-Table").bootstrapTable("refresh");
 }
 
 /**
@@ -12,7 +12,7 @@ function reload(){
  */
 function load() {
     let url=baseurl+'/Manager/queryMenu';
-    $("#menuTable").bootstrapTable({
+    $("#menu-Table").bootstrapTable({
         formatLoadingMessage:function (){
             return "数据加载中....";
         },
@@ -46,7 +46,7 @@ function load() {
                 field:'menuLevel',
             },
             {
-                title:'总分',
+                title:'创建时间',
                 field:'createTime',
             },
             {
@@ -56,7 +56,7 @@ function load() {
                     var quesId=row.quesId;
                     let del='<a onclick="delMenu(\''+value+'\')" href="javascript:void(0);">删除</a>';
                    /* let  edit='<a onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>';*/
-                    let  edit='<a onclick="modifyQues(\''+value+'\')">编辑</a>';
+                    let  edit='<a onclick="modifyMenu(\''+value+'\',\''+row.menuName+'\',\''+row.menuLevel+'\')">编辑</a>';
                     return del+edit;
                 }
             }
@@ -69,12 +69,14 @@ function load() {
  * @param menuId
  */
 function delMenu(menuId){
-    layer.confirm('确定要删除此任务？', {
+    layer.confirm('确定要删除此菜单？', {
         btn: ['是','否'] //按钮
     }, function(){
         $.ajax({
-            url:baseurl+'/Manager/queryMenu',
+            url:baseurl+'/Manager/delOneMenu',
             type:'post',
+            data:JSON.stringify({"menuId":menuId}),
+            contentType:'application/json',
             dataType:'json',
             success:function (res){
                 if(res==true){
@@ -88,3 +90,100 @@ function delMenu(menuId){
         layer.msg('已取消',  {icon: 2});
     });
 }
+
+
+//批量删除
+$("#delSelMenu").on('click',function (){
+    var rows=$("#menu-Table").bootstrapTable('getSelections');
+    if (rows.length==0){
+        alert("请先选择要删除的记录");
+        return ;
+    }else{
+        var menuIds='';
+        for(var i=0;i<rows.length;i++){
+            menuIds+=rows[i].menuId+",";
+
+        }
+        menuIds=menuIds.substring(0,menuIds.length - 1);
+        deleteMenus(menuIds);
+    }
+
+})
+function deleteMenus(menuIds){
+    var msg='您真的要删除吗？';
+    if(confirm(msg)==true){
+        $.ajax({
+            url:'http://localhost:8080/exam_gzyz_ssm/Manager/delManyMenu',
+            type:'post',
+            contentType: 'application/json',
+            data:JSON.stringify({"menuIds":menuIds}),
+            dataType:'json',
+            success:function (flag){
+                if (flag==true){
+                    layer.msg('删除成功', {icon: 1});
+                    reload();
+                }
+            }
+        })
+    }
+}
+
+/**
+ * 编辑菜单，打开弹框
+ * @param munuId
+ */
+function modifyMenu(menuId,menuName,menuLevel){
+    layer.open({
+        type: 2,
+        title: '编辑菜单',
+        fix: false,
+        shadeClose: true,
+        shade: 0.8,
+        area: ['660px', '420px'],
+        content: '../views/管理员-编辑菜单（弹框页）',
+        success:function (layero,index){
+            let childBody=layer.getChildFrame('body',index);
+            //
+            $(childBody).find('input[name="menuId"]').val(menuId);
+            $(childBody).find('input[name="menuName"]').val(menuName);
+            $(childBody).find('input[name="menuLevel"]').val(menuLevel);
+        },
+        end:function (){
+            reload();
+        }
+    });
+}
+
+/**
+ * 点击添加按钮添加菜单
+ */
+$('#addMenu').on('click',function (){
+    layer.open({
+        type: 2,
+        title: '添加菜单',
+        fix: false,
+        shadeClose: true,
+        shade: 0.8,
+        area: ['660px', '420px'],
+        content: '../views/管理员-添加菜单（弹框页）.html',
+        end:function (){
+            reload();
+        }
+    });
+})
+
+//判断弹框
+$(".delete").click(function(){
+    layer.confirm('确定要删除此任务？', {
+        btn: ['是','否'] //按钮
+    }, function(){
+        layer.msg('已删除', {icon: 1});
+    }, function(){
+        layer.msg('已取消',  {icon: 2});
+    });
+})
+
+layui.use('form', function(){
+    var form = layui.form;
+    form.render();
+});

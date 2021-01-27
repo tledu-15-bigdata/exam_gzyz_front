@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26试卷模块测试33--君">
+    <list default="true" id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26试卷模块测试331--君">
+      <change afterPath="$PROJECT_DIR$/external/js/Man-User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/external/views/管理员-添加菜单（弹框页）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/external/views/管理员-编辑菜单（弹框页）.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/bootstrap-table/bootstrap-table/locale/viewGrade.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/bootstrap-table/bootstrap-table/locale/viewGrade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/js/paperManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/paperManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/views/考试-考试链接.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/考试-考试链接.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/User/7ZF9R1.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/7ZF9R1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/User/stuLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/stuLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmls/User/text.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmls/User/text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/js/Man-menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/external/js/Man-menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/views/管理员-用户管理.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/管理员-用户管理.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/external/views/管理员-菜单管理.html" beforeDir="false" afterPath="$PROJECT_DIR$/external/views/管理员-菜单管理.html" afterDir="false" />
     </list>
     <list id="5c479527-ef98-48f6-9169-0750fe439a1b" name="ignore" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -35,35 +35,28 @@
     <file path="$PROJECT_DIR$/.idea/workspace.xml">
       <ranges>
         <range start1="2" end1="2" start2="2" end2="20" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="3" end1="4" start2="21" end2="22" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="5" end1="6" start2="23" end2="24" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="7" end1="10" start2="25" end2="29" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="31" end1="31" start2="50" end2="67" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="32" end1="47" start2="68" end2="68" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="48" end1="48" start2="69" end2="70" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="134" end1="135" start2="156" end2="164" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="139" end1="139" start2="168" end2="180" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="144" end1="145" start2="185" end2="187" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="151" end1="151" start2="193" end2="197" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-      </ranges>
-    </file>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="20" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="3" end1="4" start2="21" end2="32" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="21" end1="21" start2="49" end2="64" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="23" end1="23" start2="66" end2="67" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="32" end1="32" start2="76" end2="78" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="113" end1="113" start2="159" end2="171" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="124" end1="124" start2="182" end2="186" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
-        <range start1="132" end1="134" start2="194" end2="196" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
-        <range start1="135" end1="135" start2="197" end2="202" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="3" end1="4" start2="21" end2="25" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="5" end1="11" start2="26" end2="29" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="37" end1="62" start2="55" end2="72" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="66" end1="66" start2="76" end2="77" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="74" end1="75" start2="85" end2="88" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="76" end1="76" start2="89" end2="90" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="81" end1="81" start2="95" end2="96" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="85" end1="86" start2="100" end2="100" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="91" end1="92" start2="105" end2="106" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="102" end1="102" start2="116" end2="117" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="152" end1="153" start2="167" end2="182" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="158" end1="158" start2="187" end2="199" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="162" end1="163" start2="203" end2="206" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="165" end1="165" start2="208" end2="212" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="169" end1="169" start2="216" end2="220" changelist="5c479527-ef98-48f6-9169-0750fe439a1b" />
+        <range start1="173" end1="175" start2="224" end2="226" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
+        <range start1="176" end1="176" start2="227" end2="228" changelist="00baf3f2-2879-493c-9e25-98b6ecfb7072" />
       </ranges>
     </file>
   </component>
   <component name="ProjectId" id="1nMRj9rp48ry3OGYd4EuDn3LWjk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -72,24 +65,27 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/views" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\webstore\workplace\exam_gzyz_front\external\views" />
       <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\js" />
       <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\css" />
       <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\images" />
       <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\htmls\User" />
-      <recent name="E:\ProgramFiles\WebStorm 2020.2.3\front\exam_gzyz_front\external\assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="209e7d8f-6f02-41ab-bcfb-b661f68738e4" name="Default Changelist" comment="" />
+      <changelist id="00baf3f2-2879-493c-9e25-98b6ecfb7072" name="Default Changelist" comment="1.26试卷模块测试33--君" />
       <created>1611198106081</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -100,6 +96,7 @@
       <workItem from="1611489481447" duration="15653000" />
       <workItem from="1611536465217" duration="36603000" />
       <workItem from="1611626095973" duration="10892000" />
+      <workItem from="1611709464960" duration="8056000" />
     </task>
     <task id="LOCAL-00001" summary="试题分类的CRUD，试题的查询删除">
       <created>1611246553888</created>
@@ -150,19 +147,51 @@
       <option name="project" value="LOCAL" />
       <updated>1611592087397</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1.26试卷模块测试33--君">
+      <created>1611672591909</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611672591933</updated>
+    </task>
+    <task id="LOCAL-00009" summary="1.26试卷模块测试331--君">
+      <created>1611709543807</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611709543807</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="试题分类的CRUD，试题的查询删除" />
     <MESSAGE value="题库模块" />
     <MESSAGE value="考试" />
-    <option name="LAST_COMMIT_MESSAGE" value="考试" />
+    <MESSAGE value="1.26试卷模块测试33--君" />
+    <MESSAGE value="1.26试卷模块测试331--君" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.26试卷模块测试331--君" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="417" y="164" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611717649450">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="417" y="164" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1611717649450" />
     <state x="350" y="0" key="CommitChangelistDialog2" timestamp="1611592085842">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -171,9 +200,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611312527112" />
-    <state x="403" y="172" key="MultipleFileMergeDialog" timestamp="1611489526708">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="358" y="152" key="MultipleFileMergeDialog" timestamp="1611709605321">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="358" y="152" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1611709605321" />
     <state x="403" y="172" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1611489526708" />
     <state x="529" y="276" key="VCS.ChangelistChooser" timestamp="1611653089247">
       <screen x="0" y="0" width="1366" height="728" />
