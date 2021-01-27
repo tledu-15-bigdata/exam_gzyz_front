@@ -6,15 +6,18 @@ function reload(){
 }
 
 function load() {
-    console.log("yihu")
     console.log(localStorage.getItem("pId"))
     let url="http://localhost:8080/exam_gzyz_ssm/exam/queryGrageBypid";
     $("#gradeViewTab").bootstrapTable({
         url:url,
-         method:"POST",
-         dataType:"JSON",
+        method:"POST",
+        dataType:"JSON",
 
+        // sidePagination:"server", //服务器端分页
         striped:true,  //是否显示行间隔色
+        pageNumber:1,   //初始化加载第一页
+        // pagination:true,  //是否分页
+        // pageSize:5,   //单页记录数
 
         //查询时携带的参数  data:JSON.stringify()
         queryParams:function(params){   //上传服务器的参数
@@ -24,10 +27,10 @@ function load() {
             return JSON.stringify(temp);
         },
         columns:[
-            // {
-            //     checkbox:true,
-            //     visible:true
-            // },
+            {
+                checkbox:true,
+                visible:true
+            },
             {
                 title:'行号',
                 align:"center",
@@ -44,13 +47,17 @@ function load() {
 
 
             {
-                title:'学生ID',
-                field:'stu_name',
+                title:'学生姓名',
+                field:'stuName',
+            },
+            {
+                title:'学生手机',
+                field:'stuPhone',
             },
             {
                 title:'学生成绩',
                 field:'psgGrade',
-            },
+            }
             // {
             //     title:'管理',
             //     formatter:function(value,row,index){

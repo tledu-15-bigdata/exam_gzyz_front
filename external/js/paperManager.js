@@ -54,6 +54,9 @@ function load() {
             {
                 title:'试卷标题',
                 field:'pTitle',
+                // formatter:function (value,row,index){
+                //     return "<a href=''>"+value+"</a>"
+                // }
             },
             {
                 title:'试卷分类',
@@ -64,17 +67,16 @@ function load() {
                     var pcName='';
                     $.ajax({
                         url:baseurl+'/paper/queryOneClassify',
+                        async:false,
+                        data: jsonData,
                         type: "post",
-                        contentType: "application/json",
-                        data: jsonData,//formdata
-                        async:false,//同步
-                        dataType: "JSON",
                         success:function (res){
+                            console.log("hahahahahah")
+                            console.log(res)
                             pcName=res.pcName;
-                            console.log(pcName);
+                            console.log(res.pcName);
                         }
                     });
-                    console.log(pcName+"&&&&&&&&&&&*********")
                     return pcName;
                 }
             },
@@ -89,14 +91,14 @@ function load() {
                 title:'结束时间',
                 field:'pEndTime',
             },{
-                title:'状态',
-                field: 'pStatus',
+                title:'随意时间考试',
+                field: 'pFree',
                 formatter:function (value,row,index){
                     var msg;
                     if (value==1){
-                        msg="已考";
+                        msg="是";
                     }else if (value==0){
-                        msg="未考";
+                        msg="否";
                     }
                     return msg;
                 }
@@ -173,7 +175,7 @@ function modifyQues(pId,pTitle,pcId,pStartTime,pEndTime,pFree,pStatus,userId){
             //
             $(childBody).find('input[name="pId"]').val(pId);
             $(childBody).find('input[name="pTitle"]').val(pTitle);
-            $(childBody).find('option[value='+pcId+']').attr("selected",true);
+            $(childBody).find('option[value='+pcId+']').attr("selected",'selected');
             $(childBody).find('input[name="pStartTime"]').val(pStartTime);
             $(childBody).find('input[name="pEndTime"]').val(pEndTime);
             $(childBody).find('input[value='+pFree+']').val(pFree);
