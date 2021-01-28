@@ -133,10 +133,10 @@
             var myPhone=localStorage.getItem("userPhone")
             console.log("myphone"+myPhone);
             /*验证是否是登录来到的页面（success）*/
-            if (localStorage.getItem("userPhone")==null){
+            /*if (localStorage.getItem("userPhone")==null){
                 alert("请先登录");
                 window.location.href='./User/login.html';
-            }
+            }*/
            /* 给myphone赋值*/
             $('#userPhone').text(myPhone);
         })

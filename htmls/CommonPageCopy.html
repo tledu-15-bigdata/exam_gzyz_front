@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../external/assets/css/layui.css">
     <link rel="stylesheet" href="../external/assets/css/admin.css">
     <link rel="icon" href="/favicon.ico">
+    <style>
+        a{
+            height: 100px;
+        }
+    </style>
     <title>在线考试管理后台</title>
 </head>
 <body class="layui-layout-body">
@@ -43,17 +48,6 @@
 
                 <!--主要菜单-->
                 <ul id="Nav" class="layui-nav layui-nav-tree">
-
-                   <!-- <li class="layui-nav-item">
-                        <a href="javascript:;">
-                            <i class="layui-icon">&#xe663;</i>
-                            <em>试卷模块</em>
-                        </a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>
-                            <dd><a href="../external/views/试卷-试卷管理.html">试卷管理</a></dd>
-                        </dl>
-                    </li>-->
                 </ul>
             </div>
         </div>
@@ -82,6 +76,11 @@
 
 
     <script>
+        $('em').on('click',function (){
+            alert("我被点击了")
+            console.log($(this).parent(".layui-nav-item"));
+            $(this).parent(".layui-nav-item").addClass("layui-layout-admin");
+        })
         var baseurl='http://localhost:8080/exam_gzyz_ssm';
         $(function (){
             $.ajax({
@@ -92,23 +91,20 @@
                     console.log(res);
                     for (var i=0;i<res.length;i++){
                         if (res[i].meauLevel==1){
-                            console.log("进入if语句")
                             var newLi = document.createElement('li');
 
-                            $(newLi).attr('class','layui-nav layui-nav-tree');
+                            $(newLi).attr('class','layui-nav-item');
                             $(newLi).attr('id',res[i].meauId);
                             newLi.innerHTML='<a href="javascript:;">\n' +
-                                '                            <i class="layui-icon">&#xe665;</i>\n' +
-                                '                            <em>'+res[i].meauName+'</em>\n' +
+                                '                            <i class="layui-icon layui-icon-rate-solid"></i>\n' +
+                                '                            <em>'+res[i].meauName+'</em>\n' +'<span class="layui-nav-more"></span>'
                                 '                        </a>';
-                            console.log("newLi"+newLi);
                             $('#Nav').append(newLi);
 
 
                             var newDl = document.createElement('dl');
                             $(newDl).attr('id',res[i].meauId+'dl');
                             $(newDl).attr('class','layui-nav-child');
-                            console.log(newDl);
                             $(newLi).append(newDl);
                         }
                     }
@@ -119,7 +115,10 @@
                             var parentDl=document.getElementById(parentId+'dl');
                             /*<dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>*/
                             var newDD=document.createElement('dd');
-                            newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';
+                           /* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*/
+                            console.log(res[i].meauHref);
+                            newDD.innerHTML='<a href="'+res[i].meauHref+'">'+res[i].meauName+'</a>';
+                            console.log(newDD.innerHTML);
                             $(parentDl).append(newDD);
                         }
                     }
