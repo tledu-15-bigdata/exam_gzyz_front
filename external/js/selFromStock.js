@@ -9,7 +9,7 @@ function reload(){
     $("#myAllQuestion").bootstrapTable("refresh");
 }
 
-function load(url,courId,courType,quesTitle) {
+function load(url,courId,quesType,quesTitle) {
     $("#myAllQuestion").bootstrapTable({
         url:url,
         method:"POST",
@@ -29,7 +29,7 @@ function load(url,courId,courType,quesTitle) {
                 userId:localStorage.getItem("userId"),
 
                 courId:courId,
-                courType:courType,
+                courType:quesType,
                 quesTitle:quesTitle
             };
             return JSON.stringify(temp);
@@ -81,14 +81,15 @@ $.ajax({
  * 点击筛选按钮
  */
 $('#filter').on('click',function (){
-    url= baseUrl+'/question/ques/queryQuestionsByCondition';
+    let url2= baseUrl+'/question/ques/queryQuestionsByCondition';
     let courId=$('select[name="courId"]').val();
     let quesType=$('select[name="quesType"]').val();
-    let quesTitle=$('select[name="quesTitle"]').val();
+    let quesTitle=$('input[name="quesTitle"]').val();
     console.log(courId);
     console.log(quesType);
     console.log(quesTitle);
-    load(url,courId,quesType,quesTitle);
+    load(url2,courId,quesType,quesTitle);
+    reload();
 });
 
 /**

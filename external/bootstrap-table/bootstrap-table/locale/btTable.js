@@ -66,23 +66,21 @@ function load() {
                 formatter(value,row,index){
                     jsonData={};
                     jsonData.courId=value;
-                    var courId;
+                    var courId='';
                     $.ajax({
                         url:'http://localhost:8080/exam_gzyz_ssm/question/type/queryCourseById',
                         async:false,
                         data: jsonData,
                         type: "post",
+                        dataType: 'json',
                         success:function (courName){
+                            console.log(courName);
                             courId=courName;
                         }
 
                     })
-
-
-
                     return courId;
                 }
-
             },
             {
                 title:'试题内容',
