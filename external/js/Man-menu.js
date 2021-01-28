@@ -39,11 +39,34 @@ function load() {
             },
             {
                 title:'菜单名称',
-                field:'menuName',
+                field:'meauName',
             },
             {
                 title:'菜单级别',
-                field:'menuLevel',
+                field:'meauLevel',
+            },
+            {
+                title:'父菜单',
+                field:'meauParentId',
+                formatter(value,row,index){
+                    jsonData={};
+                    jsonData.meauParentId=value;
+                    var meauName='无';
+                    $.ajax({
+                        url:baseurl+'/Manager/queryOneMenuById',
+                        async:false,
+                        data: jsonData,
+                        type: "post",
+                        success:function (res){
+                            if (res!="" && res.length!=0){
+                                console.log(res)
+                                meauName=res;
+                                console.log(res);
+                            }
+                        }
+                    });
+                    return meauName;
+                }
             },
             {
                 title:'创建时间',
@@ -51,12 +74,12 @@ function load() {
             },
             {
                 title:'管理',
-                field: 'menuId',
+                field: 'meauId',
                 formatter:function(value,row,index){
                     var quesId=row.quesId;
                     let del='<a onclick="delMenu(\''+value+'\')" href="javascript:void(0);">删除</a>';
                    /* let  edit='<a onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>';*/
-                    let  edit='<a onclick="modifyMenu(\''+value+'\',\''+row.menuName+'\',\''+row.menuLevel+'\')">编辑</a>';
+                    let  edit='<a onclick="modifyMenu(\''+value+'\',\''+row.meauName+'\',\''+row.meauLevel+'\')">编辑</a>';
                     return del+edit;
                 }
             }
@@ -99,24 +122,24 @@ $("#delSelMenu").on('click',function (){
         alert("请先选择要删除的记录");
         return ;
     }else{
-        var menuIds='';
+        var meauIds='';
         for(var i=0;i<rows.length;i++){
-            menuIds+=rows[i].menuId+",";
+            meauIds+=rows[i].menuId+",";
 
         }
-        menuIds=menuIds.substring(0,menuIds.length - 1);
-        deleteMenus(menuIds);
+        meauIds=meauIds.substring(0,meauIds.length - 1);
+        deleteMenus(meauIds);
     }
 
 })
-function deleteMenus(menuIds){
+function deleteMenus(meauIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
             url:'http://localhost:8080/exam_gzyz_ssm/Manager/delManyMenu',
             type:'post',
             contentType: 'application/json',
-            data:JSON.stringify({"menuIds":menuIds}),
+            data:JSON.stringify({"menuIds":meauIds}),
             dataType:'json',
             success:function (flag){
                 if (flag==true){
@@ -132,7 +155,7 @@ function deleteMenus(menuIds){
  * 编辑菜单，打开弹框
  * @param munuId
  */
-function modifyMenu(menuId,menuName,menuLevel){
+function modifyMenu(meauId,meauName,meauLevel){
     layer.open({
         type: 2,
         title: '编辑菜单',
@@ -140,13 +163,16 @@ function modifyMenu(menuId,menuName,menuLevel){
         shadeClose: true,
         shade: 0.8,
         area: ['660px', '420px'],
-        content: '../views/管理员-编辑菜单（弹框页）',
+        content: '../views/管理员-编辑菜单（弹框页）.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
-            $(childBody).find('input[name="menuId"]').val(menuId);
-            $(childBody).find('input[name="menuName"]').val(menuName);
-            $(childBody).find('input[name="menuLevel"]').val(menuLevel);
+            $(childBody).find('input[name="meauId"]').val(meauId);
+            $(childBody).find('input[name="meauName"]').val(meauName);
+            $(childBody).find('select[name="meauLevel"] option[value="'+meauLevel+'"]').attr("selected",true);
+            if (meauLevel==1){
+                $(childBody).find('#ParentMeau').css('display','none');
+            }
         },
         end:function (){
             reload();
