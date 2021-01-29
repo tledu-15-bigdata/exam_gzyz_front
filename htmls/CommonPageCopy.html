@@ -115,12 +115,24 @@
                             var parentDl=document.getElementById(parentId+'dl');
                             /*<dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>*/
                             var newDD=document.createElement('dd');
-                           /* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*/
+                            /* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*/
                             console.log(res[i].meauHref);
                             newDD.innerHTML='<a href="'+res[i].meauHref+'">'+res[i].meauName+'</a>';
                             console.log(newDD.innerHTML);
                             $(parentDl).append(newDD);
                         }
+                        /*if (res[i].meauLevel==2){
+                            console.log(res[i]);
+                            var parentId=res[i].meauParentId;
+                            var parentDl=document.getElementById(parentId+'dl');
+                            /!*<dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>*!/
+                            var newDD=document.createElement('dd');
+                           /!* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*!/
+                            console.log(res[i].meauHref);
+                            newDD.innerHTML='<a href="'+res[i].meauHref+'">'+res[i].meauName+'</a>';
+                            console.log(newDD.innerHTML);
+                            $(parentDl).append(newDD);
+                        }*/
                     }
 
                 }

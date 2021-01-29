@@ -34,6 +34,11 @@
         </select>
     </div>
 
+    <div id="meauHref">
+        页面路径
+        <input type="text" name="meauHref">
+    </div>
+
 
 
 </div>
@@ -57,11 +62,13 @@
             type:'post',
             dataType: 'json',
             success:function (res){
-                var option = document.createElement('option');
-                option.value = res[i].meauId;
-                option.innerText = res[i].meauName;
-                console.log(option);
-                $('select[name="meauParentId"]').append(option);
+                for (let i = 0; i < res.length; i++) {
+                    var option = document.createElement('option');
+                    option.value = res[i].meauId;
+                    option.innerText = res[i].meauName;
+                    console.log(option);
+                    $('select[name="meauParentId"]').append(option);
+                }
             }
         }) ;
 
@@ -76,8 +83,10 @@
         var level=$('select[name="meauLevel"] option:selected').val();//菜单级别
         if (level==2){
             $("#ParentMeau").css('display','block');
+            $("#meauHref").css('display','block');
         }else {
             $("#ParentMeau").css('display','none');
+            $("#meauHref").css('display','none');
         }
     }
     /**
@@ -86,6 +95,7 @@
     $('#Ok').click(function () {
         console.log($('input[name="meauName"]').val());
         let data={};
+        data.meauHref=$('input[name="meauHref"]').val();
         data.meauId=$('input[name = "meauId"]').val();
         data.meauName=$('input[name="meauName"]').val();
         data.meauLevel=$('select[name="meauLevel"] option:selected').val();//菜单级别

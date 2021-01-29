@@ -57,12 +57,10 @@ function load() {
                         async:false,
                         data: jsonData,
                         type: "post",
+                       /* dataType:'json',*/
                         success:function (res){
-                            if (res!="" && res.length!=0){
-                                console.log(res)
-                                meauName=res;
-                                console.log(res);
-                            }
+                            console.log(res.meauName);
+                            meauName=res.meauName;
                         }
                     });
                     return meauName;
@@ -79,7 +77,7 @@ function load() {
                     var quesId=row.quesId;
                     let del='<a onclick="delMenu(\''+value+'\')" href="javascript:void(0);">删除</a>';
                    /* let  edit='<a onclick="modifyQues(\''+row.pTitle+'\',\''+row.pcId+'\',\''+row.pStartTime+'\',\''+row.pEndTime+'\',\''+row.pFree+'\',\''+row.pStatus+'\',\''+row.userId+'\')">编辑</a>';*/
-                    let  edit='<a onclick="modifyMenu(\''+value+'\',\''+row.meauName+'\',\''+row.meauLevel+'\')">编辑</a>';
+                    let  edit='<a onclick="modifyMenu(\''+value+'\',\''+row.meauHref+'\',\''+row.meauParentId+'\',\''+row.meauName+'\',\''+row.meauLevel+'\')">编辑</a>';
                     return del+edit;
                 }
             }
@@ -89,23 +87,24 @@ function load() {
 
 /**
  * 删除菜单
- * @param menuId
+ * @param meauId
  */
-function delMenu(menuId){
+function delMenu(meauId){
     layer.confirm('确定要删除此菜单？', {
         btn: ['是','否'] //按钮
     }, function(){
         $.ajax({
             url:baseurl+'/Manager/delOneMenu',
             type:'post',
-            data:JSON.stringify({"menuId":menuId}),
+            data:JSON.stringify({"meauId":meauId}),
             contentType:'application/json',
             dataType:'json',
             success:function (res){
                 if(res==true){
                     layer.msg('删除成功', {icon: 1});
+                    reload();
                 }else {
-                    layer.msg('删除失败',  {icon: 2});
+                    layer.msg('删除失败,请检查是否有子菜单',  {icon: 2});
                 }
             }
         });
@@ -124,7 +123,7 @@ $("#delSelMenu").on('click',function (){
     }else{
         var meauIds='';
         for(var i=0;i<rows.length;i++){
-            meauIds+=rows[i].menuId+",";
+            meauIds+=rows[i].meauId+",";
 
         }
         meauIds=meauIds.substring(0,meauIds.length - 1);
@@ -136,15 +135,15 @@ function deleteMenus(meauIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/Manager/delManyMenu',
+            url:'http://localhost:8080/exam_gzyz_ssm/Manager/delManyMenu/'+meauIds,
             type:'post',
-            contentType: 'application/json',
-            data:JSON.stringify({"menuIds":meauIds}),
             dataType:'json',
             success:function (flag){
                 if (flag==true){
                     layer.msg('删除成功', {icon: 1});
                     reload();
+                }else {
+                    layer.msg('删除失败，请检查会否有含有子菜单的一级菜单', {icon: 2});
                 }
             }
         })
@@ -155,7 +154,7 @@ function deleteMenus(meauIds){
  * 编辑菜单，打开弹框
  * @param munuId
  */
-function modifyMenu(meauId,meauName,meauLevel){
+function modifyMenu(meauId,meauHref,meauParentId,meauName,meauLevel){
     layer.open({
         type: 2,
         title: '编辑菜单',
@@ -167,11 +166,16 @@ function modifyMenu(meauId,meauName,meauLevel){
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
+            $(childBody).find('input[name="meauHref"]').val(meauHref);
             $(childBody).find('input[name="meauId"]').val(meauId);
             $(childBody).find('input[name="meauName"]').val(meauName);
             $(childBody).find('select[name="meauLevel"] option[value="'+meauLevel+'"]').attr("selected",true);
+            if (meauLevel==2){
+                $(childBody).find('select[name="meauParentId"] option[value="'+meauParentId+'"]').attr("selected",true);
+            }
             if (meauLevel==1){
                 $(childBody).find('#ParentMeau').css('display','none');
+                $(childBody).find('#meauHref').css('display','none');
             }
         },
         end:function (){

@@ -32,6 +32,10 @@
             <option value="0">无</option>
         </select>
     </div>
+    <div id="meauHref">
+        菜单页面路径:<input  type="text" name="meauHref" value="http://localhost:63343/exam_gzyz_front/external/views/测试.html" height="20px" width="200px">
+    </div>
+
 
 
 
@@ -57,11 +61,14 @@
            type:'post',
            dataType: 'json',
            success:function (res){
-               var option = document.createElement('option');
-               option.value = res[i].meauId;
-               option.innerText = res[i].meauName;
-               console.log(option);
-               $('select[name="meauParentId"]').append(option);
+               for (var i=0;i<res.length;i++){
+                   var option = document.createElement('option');
+                   option.value = res[i].meauId;
+                   option.innerText = res[i].meauName;
+                   console.log(option);
+                   $('select[name="meauParentId"]').append(option);
+               }
+
            }
        }) ;
 
@@ -76,25 +83,29 @@
         var level=$('select[name="meauLevel"] option:selected').val();//菜单级别
         if (level==2){
             $("#ParentMeau").css('display','block');
+            $('#meauHref').css('display','block');
         }else {
             $("#ParentMeau").css('display','none');
+            $('#meauHref').css('display','none');
         }
     }
     /**
      * 点击确定按钮，添加菜单
      */
     $('#Ok').click(function () {
-        console.log($('input[name="pcName"]').val());
+        console.log($('input[name="meauName"]').val());
         let dada={};
-        data.meauName=$('input[name="meauName"]').val();
-        data.meauLevel=$('select[name="meauLevel"] option:selected').val();
-        data.meauParentId=$('select[name="meauParentId"] option:selected').val();
-        console.log("添加得数据"+JSON.stringify(data));
+        dada.meauName=$('input[name="meauName"]').val();
+        dada.meauLevel=$('select[name="meauLevel"] option:selected').val();
+        dada.meauParentId=$('select[name="meauParentId"] option:selected').val();
+        dada.meauHref=$('input[name="meauHref"]').val();
+
+        console.log("添加得数据"+JSON.stringify(dada));
         $.ajax({
             url: baseUrl + '/Manager/addMenu',
             type: 'post',
             contentType: 'application/json;charset=UTF-8',
-            data: JSON.stringify(data),
+            data: JSON.stringify(dada),
             dataType: 'json',
             success: function (res) {
                 if (res == true) {
