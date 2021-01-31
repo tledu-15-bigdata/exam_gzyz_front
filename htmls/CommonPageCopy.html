@@ -76,12 +76,13 @@
 
 
     <script>
+        var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
         $('em').on('click',function (){
             alert("我被点击了")
             console.log($(this).parent(".layui-nav-item"));
             $(this).parent(".layui-nav-item").addClass("layui-layout-admin");
         })
-        var baseurl='http://localhost:8080/exam_gzyz_ssm';
+
         $(function (){
             $.ajax({
                 url:baseurl+'/Manager/queryMenu',

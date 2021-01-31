@@ -174,12 +174,13 @@
 </body>
 <script src="../assets/jquery.min.js"></script>
 <script>
+    var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     <!--    加载试题分类数据-->
     $(document).ready(function(){
         var jsonData = {};
         jsonData.userId = localStorage.getItem("userId");
         $.ajax({
-            url: "http://localhost:8080/exam_gzyz_ssm/question/type/queryOnlyCourse",
+            url: baseUrl+"/question/type/queryOnlyCourse",
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
@@ -237,7 +238,7 @@
         jsonData.quesImg="";
 
         $.ajax({
-            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/editQuestion",
+            url: baseUrl+"/question/ques/editQuestion",
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
@@ -273,7 +274,7 @@
         jsonData.quesImg="";
 
         $.ajax({
-            url: "http://localhost:8080/exam_gzyz_ssm/question/ques/editQuestion",
+            url: baseUrl+"/question/ques/editQuestion",
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",

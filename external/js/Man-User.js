@@ -1,4 +1,4 @@
-var baseurl='http://localhost:8080/exam_gzyz_ssm';
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })

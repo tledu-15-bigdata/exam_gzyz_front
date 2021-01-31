@@ -1,3 +1,4 @@
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -7,7 +8,7 @@ function reload(){
 
 function load() {
     let userId=localStorage.getItem("userId");
-    let url='http://localhost:8080/exam_gzyz_ssm/paper/queryAllClassify/'+userId;
+    let url=baseUrl+'/paper/queryAllClassify/'+userId;
     $("#Mytable2").bootstrapTable({
         formatLoadingMessage:function (){
             return "数据加载中...";
@@ -56,7 +57,7 @@ function load() {
         ]
     });
 }
-var baseUrl='http://localhost:8080/exam_gzyz_ssm';
+
 /**
  * 删除功能实现2
  */

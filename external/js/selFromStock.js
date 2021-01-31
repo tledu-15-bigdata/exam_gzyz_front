@@ -1,5 +1,6 @@
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
-    let url="http://localhost:8080/exam_gzyz_ssm/question/ques/queryQuestions";
+    let url=baseUrl+"/question/ques/queryQuestions";
     let courId="";
     let quesType="";
     let quesTitle="";
@@ -57,7 +58,7 @@ function load(url,courId,quesType,quesTitle) {
         ]
     })
 }
-let baseUrl='http://localhost:8080/exam_gzyz_ssm';
+
 let userId = localStorage.getItem("userId");
 /**
  * 打开页面前加载试卷分类

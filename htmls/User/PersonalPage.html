@@ -90,13 +90,14 @@
 
 </body>
 <script>
+    var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     $(function (){
         /*打开页面前去后端查询数据*/
         var myPhone=localStorage.getItem("userPhone");
         console.log(myPhone);
         var phone={"userPhone":myPhone};
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/user/queryMyMsg',
+            url:baseUrl+'/user/queryMyMsg',
             type:'post',
             contentType:'application/json;charset=UTF-8',
             data:JSON.stringify(phone),//json格式字符串
@@ -110,8 +111,8 @@
                     $('#myName').val(res.userName);
                     $('#myPwd').val(res.userPwd);
                     $('input[name="userImg"]').val(res.userImg);
-                    $('#myImg').attr('src','http://localhost:8080'+res.userImg.substring(48));
-                    console.log('http://localhost:8080'+res.userImg.substring(48));
+                    $('#myImg').attr('src','http://123.57.18.186:8080'+res.userImg.substring(48));
+                    console.log('http://123.57.18.186:8080'+res.userImg.substring(48));
                 }
             }
         })
@@ -133,7 +134,7 @@
 
 
     })
-    var BASE_URL="http://localhost:63342/exam_gzyz_front";
+    var BASE_URL="http://123.57.18.186:8989/exam_gzyz_front";
     var thumbnailWidth = 1;   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档
     var thumbnailHeight = 1;
     //直接引用 上传对象   WebUploader
@@ -143,7 +144,7 @@
         // swf文件路径
         swf: BASE_URL + '/external/webuploader-0.15/Uploader.swf',
         // 文件接收服务端。
-        server: 'http://localhost:8080/exam_gzyz_ssm/user/ImgUpload',
+        server: baseUrl+'/user/ImgUpload',
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
         pick: '#filePicker',
@@ -203,7 +204,7 @@
         data.userImg=$('input[name="userImg"]').val();
         console.log(data);
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/user/editMyMsg',
+            url:baseUrl+'/user/editMyMsg',
             type:'post',
             contentType:'application/json;charset=UTF-8',
             data:JSON.stringify(data),//json字符串

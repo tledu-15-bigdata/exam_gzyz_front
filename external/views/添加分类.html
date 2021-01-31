@@ -33,12 +33,13 @@
 <script src="../lay/modules/layer.js"></script>
 
 <script>
+    var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     function commitCour(){
         var jsonData={};
             jsonData.courName=$("#newCourName").val();
         jsonData.userId=localStorage.getItem('userId');
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/question/type/addCourse',
+            url:baseUrl+'/question/type/addCourse',
             // data: JSON.stringify(jsonData),
             data:jsonData,
             type:"POST",

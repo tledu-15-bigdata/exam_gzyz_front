@@ -21,12 +21,13 @@
 <script src="../assets/jquery.min.js"></script>
 <script src="../lay/modules/layer.js"></script>
 <script>
+    var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     function commitModifyCour(){
         var jsonData={};
         jsonData.courName=$("#courName1").val();
         jsonData.courId=$("#courId1").val();
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/question/type/editCourseByName',
+            url:baseUrl+'/type/editCourseByName',
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",

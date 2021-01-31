@@ -79,14 +79,14 @@
 <script src="../assets/layui.all.js"></script>
 <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
 <script>
+	var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     $(function () {
     	var userId=localStorage.getItem("userId");
-    	var baseUrl='http://localhost:8080/exam_gzyz_ssm';
 		/**
 		 * 打开页面前加载试卷分类
 		 */
 		$.ajax({
-			url: 'http://localhost:8080/exam_gzyz_ssm/paper/queryAllClassify/' + localStorage.getItem("userId"),
+			url: baseUrl+'/paper/queryAllClassify/' + localStorage.getItem("userId"),
 			type: 'post',
 			dataType: 'json',
 			success: function (res) {

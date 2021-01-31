@@ -55,6 +55,7 @@
 </body>
 <script src="../../external/assets/jquery.min.js"></script>
 <script>
+    var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
     $(document).ready(function(c) {
         $('.alert-close').on('click', function(c){
             $('.message').fadeOut('slow', function(c){
@@ -71,7 +72,7 @@
         jsonData.stuName=stuName;
         jsonData.stuPhone=stuPhone;
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/exam/addStudent',
+            url:baseUrl+'/exam/addStudent',
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",
@@ -80,7 +81,7 @@
                 if (res.flag=="1"){
                     localStorage.setItem("stuId",res.stuId);
                     /*window.location.href="http://localhost:63342/exam_gzyz_front/htmls/User/text.html";*/
-                    window.location.href="http://localhost:63343/exam_gzyz_front/htmls/User/text.html"
+                    window.location.href="http://123.57.18.186:8989/exam_gzyz_front/htmls/User/text.html"
                 }else {
                     alert("操作有误!")
                 }

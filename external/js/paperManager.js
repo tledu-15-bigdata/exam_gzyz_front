@@ -1,4 +1,4 @@
-var baseurl='http://localhost:8080/exam_gzyz_ssm';
+var baseurl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -134,7 +134,7 @@ function load() {
                 content:'考试-考试链接.html',
                 success:function (layero,index){
                     let childBody=layer.getChildFrame('body',index);
-                    $(childBody).find('input[name=textUrl]').val("http://localhost:63342/exam_gzyz_front/htmls/User/7ZF9R1.html");
+                    $(childBody).find('input[name=textUrl]').val("http://123.57.18.186:8989/exam_gzyz_front/htmls/User/7ZF9R1.html");
                     $(childBody).find('input[name=textRandNum]').val(row.pId);
                     // $(childBody).find('input[name=courId]').val(courId);
                 }

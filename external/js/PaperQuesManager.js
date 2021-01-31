@@ -1,3 +1,4 @@
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -13,7 +14,7 @@ function load() {
         formatNoMatches:function (){
             return "去匹配数据";
         },
-        url:'http://localhost:8080/exam_gzyz_ssm/paper/queryAllQuesByPid',
+        url:baseUrl+'/paper/queryAllQuesByPid',
         method:"POST",
         dataType:"JSON",
         striped:true,  //是否显示行间隔色
@@ -90,7 +91,7 @@ function deleteQues(quesIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/paper/delQuestion',
+            url:baseUrl+'/paper/delQuestion',
             type:'post',
             contentType: 'application/json',
             data: JSON.stringify({"quesIds":quesIds,"pId":localStorage.getItem("pId")}),

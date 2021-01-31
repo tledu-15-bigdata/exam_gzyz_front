@@ -1,4 +1,4 @@
-var baseurl='http://localhost:8080/exam_gzyz_ssm';
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -135,7 +135,7 @@ function deleteMenus(meauIds){
     var msg='您真的要删除吗？';
     if(confirm(msg)==true){
         $.ajax({
-            url:'http://localhost:8080/exam_gzyz_ssm/Manager/delManyMenu/'+meauIds,
+            url:baseurl+'/Manager/delManyMenu/'+meauIds,
             type:'post',
             dataType:'json',
             success:function (flag){

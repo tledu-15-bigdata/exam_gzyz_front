@@ -62,6 +62,7 @@
 </body>
 <script>
     $(function () {
+        var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
         //验证密码是否一致
         $('input[name="user_pwd2"]').blur(function(){
             var pwd1=$('input[name="user_pwd2"]').val();
@@ -77,7 +78,7 @@
              */
             console.log($('#zhuceForm').serialize());
             $.ajax({
-                url: 'http://localhost:8080/exam_gzyz_ssm/user/register',
+                url: baseUrl+'/user/register',
                 type: 'post',
                 data: $('#zhuceForm').serialize(),
                 dataType: 'json',

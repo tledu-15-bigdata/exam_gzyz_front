@@ -1,3 +1,4 @@
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -7,7 +8,7 @@ function reload(){
 
 function load() {
     console.log(localStorage.getItem("pId"))
-    let url="http://localhost:8080/exam_gzyz_ssm/exam/queryGrageBypid";
+    let url=baseUrl+"/exam/queryGrageBypid";
     $("#gradeViewTab").bootstrapTable({
         url:url,
         method:"POST",

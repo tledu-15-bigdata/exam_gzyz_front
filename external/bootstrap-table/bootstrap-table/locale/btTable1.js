@@ -1,3 +1,5 @@
+
+var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -6,7 +8,7 @@ function reload(){
 }
 
 function load() {
-    let url="http://localhost:8080/exam_gzyz_ssm/question/type/queryCourse"
+    let url=baseUrl+"/question/type/queryCourse"
     $("#myCourceTable").bootstrapTable({
         url:url,
         method:"POST",
@@ -37,7 +39,7 @@ function load() {
                 title:'管理',
                 formatter:function(value,row,index){
                     var courId=row.courId;
-                    let url= 'http://localhost:8080/exam_gzyz_ssm/question/type/delCourseByName/'+courId;
+                    let url= baseUrl+'/question/type/delCourseByName/'+courId;
                     let operations='<a href="javascript:removeCour(\''+url+'\')">删除</a>';
                     operations+='<a href="javascript:void(0)" onclick="modifyCour(\''+row.courId+'\',\''+row.courName+'\')">修改</a>';
                     return operations;

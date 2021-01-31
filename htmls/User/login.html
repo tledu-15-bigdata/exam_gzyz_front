@@ -61,13 +61,14 @@ $(document).ready(function () {
 
 <script>
     $(function (){
+        var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
         /**
          * 登录
          */
         $('#loginBtn').click(function (){
             console.log($('#loginForm').serialize());
             $.ajax({
-                url:'http://localhost:8080/exam_gzyz_ssm/user/login',
+                url:baseUrl+'/user/login',
                 type:'post',
                 data:$('#loginForm').serialize(),//formdata数据
                 dataType:'json',
