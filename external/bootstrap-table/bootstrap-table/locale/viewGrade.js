@@ -59,16 +59,7 @@ function load() {
                 title:'学生成绩',
                 field:'psgGrade',
             }
-            // {
-            //     title:'管理',
-            //     formatter:function(value,row,index){
-            //         var quesId=row.quesId;
-            //         let url= 'http://localhost:8080/exam_gzyz_ssm/question/ques/delOneQuestion/'+quesId;
-            //         let operations='<a href="javascript:removeQues(\''+url+'\')">删除</a>';
-            //             operations+='<a href="javascript:void(0)" onclick="modifyQues(\''+row.quesId+'\',\''+row.quesType+'\',\''+row.courId+'\',\''+row.quesTitle+'\',\''+row.quesSelA+'\',\''+row.quesSelB+'\',\''+row.quesSelC+'\',\''+row.quesSelD+'\',\''+row.quesAns+'\',\''+row.quesScore+'\',\''+row.quesImg+'\',\''+row.createTime+'\',)">修改</a>'
-            //         return operations;
-            //     }
-            // }
+
 
         ]
     })

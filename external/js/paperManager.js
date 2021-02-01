@@ -131,7 +131,7 @@ function load() {
                 maxmin:false,
                 shadeClose:false,
                 area:['50%','50%'],
-                content:'考试-考试链接.html',
+                content:'examExamHref.html',
                 success:function (layero,index){
                     let childBody=layer.getChildFrame('body',index);
                     $(childBody).find('input[name=textUrl]').val("http://123.57.18.186:8989/exam_gzyz_front/htmls/User/7ZF9R1.html");
@@ -150,7 +150,7 @@ function load() {
  */
 function questionManager(pId){
     localStorage.setItem("pId",pId);
-    window.location.href='../views/试卷-试题设置.html';
+    window.location.href='../views/paperQuesSet.html';
 }
 /**
  * 点击编辑信息进入编辑试卷页面
@@ -169,7 +169,7 @@ function modifyQues(pId,pTitle,pcId,pStartTime,pEndTime,pFree,pStatus,userId){
         maxmin:false,
         shadeClose:false,
         area:['60%','90%'],
-        content:'../views/试卷-编辑试卷（弹框页）.html',
+        content:'../views/paperEditPaper.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
@@ -262,8 +262,8 @@ $('#fabu').on('click', function(){
             shadeClose: true,
             shade: 0.8,
             area: ['750px', '500px'],
-            /*content: '试卷-添加试卷（弹框页）.html',*/
-            content: '../views/试卷-添加试卷（弹框页）.html',
+
+            content: '../views/paperAddPaper.html',
             end: function () {
                 location.reload();
             }
@@ -279,7 +279,7 @@ function toViewResults(){
         maxmin:false,
         shadeClose:false,
         area:['60%','90%'],
-        content:'../views/试卷-阅卷评分（弹框页）.html',
+        content:'../views/paperReadingScores.html',
         // success:function (layero,index){
         //     let childBody=layer.getChildFrame('body',index);
         //     //

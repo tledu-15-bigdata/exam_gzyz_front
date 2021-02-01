@@ -1,4 +1,4 @@
-var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
+var baseurl='http://123.57.18.186:8080/exam_gzyz_ssm'
 $(function () {
     load();
 })
@@ -162,7 +162,7 @@ function modifyMenu(meauId,meauHref,meauParentId,meauName,meauLevel){
         shadeClose: true,
         shade: 0.8,
         area: ['660px', '420px'],
-        content: '../views/管理员-编辑菜单（弹框页）.html',
+        content: '../views/managerEditMenu.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
@@ -195,7 +195,7 @@ $('#addMenu').on('click',function (){
         shadeClose: true,
         shade: 0.8,
         area: ['660px', '420px'],
-        content: '../views/管理员-添加菜单（弹框页）.html',
+        content: '../views/managerAddMenu.html',
         end:function (){
             reload();
         }

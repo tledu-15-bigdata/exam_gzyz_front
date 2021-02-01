@@ -99,7 +99,7 @@ function editMsg(id,pcName){
             shadeClose: true,
             shade: 0.8,
             area: ['660px', '420px'],
-            content: '试卷-编辑试卷分类（弹框页）.html',
+            content: 'paperEditPaperClassify.html',
             //弹出层页面成功打开后，的设置       加载子页面 渲染子页面 load后端数据 弹出 success 展示成功
             success:function(layero,index){
                 //当前是表格页面     修改是表格的子页面   父页面JS代码中将数据传递给子页面中
@@ -132,7 +132,7 @@ $('#fabu').on('click', function(){
             shadeClose: true,
             shade: 0.8,
             area: ['660px', '420px'],
-            content: '试卷-添加试卷分类（弹框页）.html',
+            content: 'paperAddPaperClassify.html',
             end: function () {
                 location.reload();
             }

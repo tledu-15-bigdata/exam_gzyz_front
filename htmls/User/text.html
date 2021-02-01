@@ -18,6 +18,7 @@
 <script src="../../external/assets/jquery.min.js"></script>
 <script>
     var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
+    // var baseUrl='http://localhost:8080/exam_gzyz_ssm'
 <!--定义一个全局数组，用来封装学生考试信息-->
     var PaperData= new Array();
     //定义试题的数量
@@ -28,6 +29,7 @@
     $(document).ready(function (){
         var jsonData={};
         jsonData.pId=localStorage.getItem("pId")
+        console.log(jsonData.pId)
         $.ajax({
             url: baseUrl+"/paper/queryAllQuesByPid",
             data: JSON.stringify(jsonData),
@@ -35,7 +37,8 @@
             contentType: "application/json",
             dataType: "JSON",
             success: function(result) {
-                // console.log("哈哈哈哈哈哈哈哈哈哈")
+                console.log("结果"+result)
+                console.log("哈哈哈哈哈哈哈哈哈哈")
                 $(".testContent").html("");
                  array = result;
                 // console.log(array)

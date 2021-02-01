@@ -73,7 +73,7 @@ function modifyCour(courId,courName){
         maxmin:false,
         shadeClose:false,
         area:['50%','50%'],
-        content:'修改分类.html',
+        content:'quesModifyClassify.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             $(childBody).find('input[name=courName]').val(courName);

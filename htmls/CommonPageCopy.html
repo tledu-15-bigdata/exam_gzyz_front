@@ -76,7 +76,7 @@
 
 
     <script>
-        var baseUrl='http://123.57.18.186:8080/exam_gzyz_ssm'
+        var baseurl='http://123.57.18.186:8080/exam_gzyz_ssm'
         $('em').on('click',function (){
             alert("我被点击了")
             console.log($(this).parent(".layui-nav-item"));
@@ -114,7 +114,7 @@
                             console.log(res[i]);
                             var parentId=res[i].meauParentId;
                             var parentDl=document.getElementById(parentId+'dl');
-                            /*<dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>*/
+
                             var newDD=document.createElement('dd');
                             /* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*/
                             console.log(res[i].meauHref);
@@ -126,7 +126,7 @@
                             console.log(res[i]);
                             var parentId=res[i].meauParentId;
                             var parentDl=document.getElementById(parentId+'dl');
-                            /!*<dd><a href="../external/views/试卷-试卷分类.html">试卷分类管理</a></dd>*!/
+
                             var newDD=document.createElement('dd');
                            /!* newDD.innerHTML='<a href="../external/views/测试.html">'+res[i].meauName+'</a>';*!/
                             console.log(res[i].meauHref);

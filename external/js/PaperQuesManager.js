@@ -116,7 +116,7 @@ $('#selFromStock').on('click', function(){
         shadeClose: true,
         shade: 0.8,
         area: ['90%', '90%'],
-        content: '../views/试卷-题库选题（弹框页）.html',
+        content: '../views/paperQuesSelect.html',
         end: function () {
             location.reload();
         }
@@ -127,7 +127,7 @@ $('#selFromStock').on('click', function(){
  * 点击试卷管理
  */
 $('#pageMan').on('click',function (){
-    window.location.href='../views/试卷-试卷管理.html';
+    window.location.href='../views/paperPaperManager.html';
 })
 
 layui.use('form', function(){

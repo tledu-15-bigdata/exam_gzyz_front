@@ -27,7 +27,7 @@
         jsonData.courName=$("#courName1").val();
         jsonData.courId=$("#courId1").val();
         $.ajax({
-            url:baseUrl+'/type/editCourseByName',
+            url:baseUrl+'/question/type/editCourseByName',
             data: JSON.stringify(jsonData),
             type: "post",
             contentType: "application/json",

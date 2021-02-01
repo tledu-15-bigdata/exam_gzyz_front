@@ -129,7 +129,7 @@ function modifyQues(quesId,quesType,courId,quesTitle,quesSelA,quesSelB,quesSelC,
         maxmin:false,
         shadeClose:false,
         area:['60%','90%'],
-        content:'修改试题.html',
+        content:'quesModifyQues.html',
         success:function (layero,index){
             let childBody=layer.getChildFrame('body',index);
             //
